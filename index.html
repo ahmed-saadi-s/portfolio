@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ahmed Saadi — Software Engineer</title>
+  <meta name="description"
+    content="Ahmed Saadi — Experienced Software Engineer specialized in back-end development, Laravel, and scalable web applications." />
+  <meta name="keywords"
+    content="Ahmed Saadi, Software Engineer, Laravel, PHP, Full-Stack Developer, Back-End Developer" />
+  <meta name="author" content="Ahmed Saadi" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ahmed Saadi — Software Engineer" />
+  <meta property="og:description"
+    content="Building scalable, secure, and high-performance applications with clean architecture." />
+  <meta property="og:type" content="website" />
+
+  <!-- Favicon -->
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 5L93 28V72L50 95L7 72V28L50 5Z' fill='%2306b6d4' stroke='none'/><path d='M38 35L28 50L38 65' stroke='%23f1f5f9' stroke-width='6' stroke-linecap='round' stroke-linejoin='round' fill='none'/><path d='M56 30L44 70' stroke='%23f1f5f9' stroke-width='6' stroke-linecap='round' stroke-linejoin='round' fill='none'/><path d='M62 35L72 50L62 65' stroke='%23f1f5f9' stroke-width='6' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>" />
+
+  <!-- AOS CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+  <!-- Tailwind CSS v4 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Alpine.js -->
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Translations -->
+  <script src="js/i18n.js"></script>
+</head>
+
+<body x-data="{
+      locale: localStorage.getItem('portfolio-lang') || 'en',
+      t: translations[localStorage.getItem('portfolio-lang') || 'en'],
+      mobileOpen: false,
+      switchLang() {
+        this.locale = this.locale === 'en' ? 'ar' : 'en';
+        this.t = translations[this.locale];
+        localStorage.setItem('portfolio-lang', this.locale);
+        document.documentElement.setAttribute('dir', this.t.dir);
+        document.documentElement.setAttribute('lang', this.t.lang);
+        document.body.style.fontFamily = this.t.fontFamily;
+        if (typeof initTypingEffect === 'function') {
+          initTypingEffect(this.t.heroTyping);
+        }
+      },
+      init() {
+        document.documentElement.setAttribute('dir', this.t.dir);
+        document.documentElement.setAttribute('lang', this.t.lang);
+        document.body.style.fontFamily = this.t.fontFamily;
+        this.$nextTick(() => {
+          if (typeof initTypingEffect === 'function') {
+            initTypingEffect(this.t.heroTyping);
+          }
+        });
+      }
+    }" x-init="init()">
+  <!-- ======== NAVBAR ======== -->
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="#" class="nav-logo">
+        <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50 5L92 29V71L50 95L8 71V29L50 5Z" stroke="#06b6d4" stroke-width="5" stroke-linecap="round"
+            stroke-linejoin="round" />
+          <path d="M38 35L28 50L38 65" stroke="#f1f5f9" stroke-width="5" stroke-linecap="round"
+            stroke-linejoin="round" />
+          <path d="M56 30L44 70" stroke="#f1f5f9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M62 35L72 50L62 65" stroke="#f1f5f9" stroke-width="5" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+        <span class="logo-text">Ahmed Saadi</span>
+      </a>
+      <ul class="nav-links" :class="{ 'open': mobileOpen }">
+        <li>
+          <a class="nav-link" href="#about" x-text="t.navAbout" @click="mobileOpen = false"></a>
+        </li>
+        <li>
+          <a class="nav-link" href="#experience" x-text="t.navExperience" @click="mobileOpen = false"></a>
+        </li>
+        <li>
+          <a class="nav-link" href="#skills" x-text="t.navSkills" @click="mobileOpen = false"></a>
+        </li>
+        <li>
+          <a class="nav-link" href="#projects" x-text="t.navProjects" @click="mobileOpen = false"></a>
+        </li>
+        <li>
+          <a class="nav-link" href="#education" x-text="t.navEducation" @click="mobileOpen = false"></a>
+        </li>
+        <li>
+          <a class="nav-link" href="#contact" x-text="t.navContact" @click="mobileOpen = false"></a>
+        </li>
+        <li>
+          <button class="lang-toggle" @click="switchLang()" x-text="t.langToggle"></button>
+        </li>
+      </ul>
+
+      <button class="mobile-toggle" @click="mobileOpen = !mobileOpen" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ======== HERO ======== -->
+  <section class="hero section" id="hero">
+    <div class="hero-bg">
+      <div class="grid-pattern"></div>
+      <div class="gradient-orb orb-1"></div>
+      <div class="gradient-orb orb-2"></div>
+    </div>
+
+    <div class="container hero-content">
+      <span class="hero-greeting" x-text="t.heroGreeting"></span>
+
+      <h1 class="hero-name" x-text="t.heroName"></h1>
+
+      <div class="hero-typing-wrapper">
+        <span class="hero-typing-text" id="typing-text"></span>
+        <span class="typing-cursor"></span>
+      </div>
+
+      <p class="hero-desc" x-text="t.heroDescription"></p>
+
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">
+          <span x-text="t.heroCTA"></span>
+          <span>↓</span>
+        </a>
+        <a href="#contact" class="btn btn-outline">
+          <span x-text="t.heroContact"></span>
+          <span>→</span>
+        </a>
+        <a href="assets/Ahmed-Saadi-CV.pdf" target="_blank" class="btn btn-outline">
+          <span x-text="t.heroDownloadCV"></span>
+          <span>📄</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== ABOUT ======== -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle" x-text="t.aboutSubtitle"></span>
+        <h2 class="section-title" x-text="t.aboutTitle"></h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text" data-aos="fade-up" data-aos-delay="100">
+          <p x-text="t.aboutText1"></p>
+          <p x-text="t.aboutText2"></p>
+        </div>
+
+        <div class="about-stats" data-aos="fade-up" data-aos-delay="200">
+          <div class="glass-card stat-card">
+            <span class="stat-value" x-text="t.aboutStat1Value"></span>
+            <span class="stat-label" x-text="t.aboutStat1Label"></span>
+          </div>
+          <div class="glass-card stat-card">
+            <span class="stat-value" x-text="t.aboutStat2Value"></span>
+            <span class="stat-label" x-text="t.aboutStat2Label"></span>
+          </div>
+          <div class="glass-card stat-card">
+            <span class="stat-value" x-text="t.aboutStat3Value"></span>
+            <span class="stat-label" x-text="t.aboutStat3Label"></span>
+          </div>
+          <div class="glass-card stat-card">
+            <span class="stat-value" x-text="t.aboutStat4Value"></span>
+            <span class="stat-label" x-text="t.aboutStat4Label"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== EXPERIENCE ======== -->
+  <section class="section" id="experience">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle" x-text="t.expSubtitle"></span>
+        <h2 class="section-title" x-text="t.expTitle"></h2>
+      </div>
+
+      <div class="timeline">
+        <!-- TaxiF -->
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+          <div class="timeline-dot animate-pulse-glow"></div>
+          <div class="glass-card timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role" x-text="t.exp1Role"></h3>
+                <span class="timeline-company" x-text="t.exp1Company"></span>
+              </div>
+              <div class="timeline-meta">
+                <span class="timeline-date">📅 <span x-text="t.exp1Date"></span></span>
+                <span class="timeline-location">📍 <span x-text="t.exp1Location"></span></span>
+              </div>
+            </div>
+            <ul class="timeline-points">
+              <template x-for="point in t.exp1Points" :key="point">
+                <li x-text="point"></li>
+              </template>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Nobalaa -->
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="timeline-dot"></div>
+          <div class="glass-card timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role" x-text="t.exp2Role"></h3>
+                <span class="timeline-company" x-text="t.exp2Company"></span>
+              </div>
+              <div class="timeline-meta">
+                <span class="timeline-date">📅 <span x-text="t.exp2Date"></span></span>
+                <span class="timeline-location">📍 <span x-text="t.exp2Location"></span></span>
+              </div>
+            </div>
+            <ul class="timeline-points">
+              <template x-for="point in t.exp2Points" :key="point">
+                <li x-text="point"></li>
+              </template>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Freelance -->
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+          <div class="timeline-dot"></div>
+          <div class="glass-card timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role" x-text="t.exp3Role"></h3>
+                <span class="timeline-company" x-text="t.exp3Company"></span>
+              </div>
+              <div class="timeline-meta">
+                <span class="timeline-date">📅 <span x-text="t.exp3Date"></span></span>
+                <span class="timeline-location">📍 <span x-text="t.exp3Location"></span></span>
+              </div>
+            </div>
+            <ul class="timeline-points">
+              <template x-for="point in t.exp3Points" :key="point">
+                <li x-text="point"></li>
+              </template>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== SKILLS ======== -->
+  <section class="section" id="skills">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle" x-text="t.skillsSubtitle"></span>
+        <h2 class="section-title" x-text="t.skillsTitle"></h2>
+      </div>
+
+      <div class="skills-grid">
+        <!-- Languages -->
+        <div class="glass-card skill-category" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="skill-category-title">
+            <span>💻</span> <span x-text="t.skillCat1"></span>
+          </h3>
+          <div class="skill-tags">
+            <span class="skill-tag">PHP</span>
+            <span class="skill-tag">JavaScript</span>
+          </div>
+        </div>
+
+        <!-- Frameworks -->
+        <div class="glass-card skill-category" data-aos="fade-up" data-aos-delay="150">
+          <h3 class="skill-category-title">
+            <span>🔧</span> <span x-text="t.skillCat2"></span>
+          </h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Laravel</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">CodeIgniter</span>
+          </div>
+        </div>
+
+        <!-- Databases -->
+        <div class="glass-card skill-category" data-aos="fade-up" data-aos-delay="200">
+          <h3 class="skill-category-title">
+            <span>🗄️</span> <span x-text="t.skillCat3"></span>
+          </h3>
+          <div class="skill-tags">
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">SQL Server</span>
+            <span class="skill-tag">Firebase</span>
+          </div>
+        </div>
+
+        <!-- Tools -->
+        <div class="glass-card skill-category" data-aos="fade-up" data-aos-delay="250">
+          <h3 class="skill-category-title">
+            <span>⚙️</span> <span x-text="t.skillCat4"></span>
+          </h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">RESTful APIs</span>
+            <span class="skill-tag">VPS</span>
+            <span class="skill-tag">Shared Hosting</span>
+            <span class="skill-tag">FCM</span>
+          </div>
+        </div>
+
+        <!-- Front-End -->
+        <div class="glass-card skill-category" data-aos="fade-up" data-aos-delay="300">
+          <h3 class="skill-category-title">
+            <span>🎨</span> <span>Front-End</span>
+          </h3>
+          <div class="skill-tags">
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">CSS</span>
+          </div>
+        </div>
+
+        <!-- Core Strengths -->
+        <div class="glass-card skill-category" data-aos="fade-up" data-aos-delay="350">
+          <h3 class="skill-category-title">
+            <span>🚀</span> <span x-text="t.skillCat5"></span>
+          </h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Server Management</span>
+            <span class="skill-tag">Deployment</span>
+            <span class="skill-tag">API Integration</span>
+            <span class="skill-tag">Performance Optimization</span>
+            <span class="skill-tag">Background Queues</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== PROJECTS ======== -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle" x-text="t.projSubtitle"></span>
+        <h2 class="section-title" x-text="t.projTitle"></h2>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1: E-commerce -->
+        <div class="glass-card project-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="project-icon">🛒</div>
+          <h3 class="project-title" x-text="t.proj1Title"></h3>
+          <p class="project-desc" x-text="t.proj1Desc"></p>
+          <ul class="project-points">
+            <template x-for="point in t.proj1Points" :key="point">
+              <li x-text="point"></li>
+            </template>
+          </ul>
+          <div class="project-tags">
+            <template x-for="tag in t.proj1Tags" :key="tag">
+              <span class="project-tag" x-text="tag"></span>
+            </template>
+          </div>
+        </div>
+
+        <!-- Project 2: Car Marketplace -->
+        <div class="glass-card project-card" data-aos="fade-up" data-aos-delay="150">
+          <div class="project-icon">🚗</div>
+          <h3 class="project-title" x-text="t.proj2Title"></h3>
+          <p class="project-desc" x-text="t.proj2Desc"></p>
+          <ul class="project-points">
+            <template x-for="point in t.proj2Points" :key="point">
+              <li x-text="point"></li>
+            </template>
+          </ul>
+          <div class="project-tags">
+            <template x-for="tag in t.proj2Tags" :key="tag">
+              <span class="project-tag" x-text="tag"></span>
+            </template>
+          </div>
+        </div>
+
+        <!-- Project 3: School Management -->
+        <div class="glass-card project-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="project-icon">🏫</div>
+          <h3 class="project-title" x-text="t.proj3Title"></h3>
+          <p class="project-desc" x-text="t.proj3Desc"></p>
+          <ul class="project-points">
+            <template x-for="point in t.proj3Points" :key="point">
+              <li x-text="point"></li>
+            </template>
+          </ul>
+          <div class="project-tags">
+            <template x-for="tag in t.proj3Tags" :key="tag">
+              <span class="project-tag" x-text="tag"></span>
+            </template>
+          </div>
+        </div>
+
+        <!-- Project 4: CodeIgniter Upgrade -->
+        <div class="glass-card project-card" data-aos="fade-up" data-aos-delay="250">
+          <div class="project-icon">🔄</div>
+          <h3 class="project-title" x-text="t.proj4Title"></h3>
+          <p class="project-desc" x-text="t.proj4Desc"></p>
+          <ul class="project-points">
+            <template x-for="point in t.proj4Points" :key="point">
+              <li x-text="point"></li>
+            </template>
+          </ul>
+          <div class="project-tags">
+            <template x-for="tag in t.proj4Tags" :key="tag">
+              <span class="project-tag" x-text="tag"></span>
+            </template>
+          </div>
+        </div>
+
+        <!-- Project 5: TaxiF CMS -->
+        <div class="glass-card project-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="project-icon">🌐</div>
+          <h3 class="project-title" x-text="t.proj5Title"></h3>
+          <p class="project-desc" x-text="t.proj5Desc"></p>
+          <ul class="project-points">
+            <template x-for="point in t.proj5Points" :key="point">
+              <li x-text="point"></li>
+            </template>
+          </ul>
+          <div class="project-tags">
+            <template x-for="tag in t.proj5Tags" :key="tag">
+              <span class="project-tag" x-text="tag"></span>
+            </template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== EDUCATION ======== -->
+  <section class="section" id="education">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle" x-text="t.eduSubtitle"></span>
+        <h2 class="section-title" x-text="t.eduTitle"></h2>
+      </div>
+
+      <div class="glass-card edu-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="edu-icon">🎓</div>
+        <h3 class="edu-degree" x-text="t.eduDegree"></h3>
+        <p class="edu-school" x-text="t.eduSchool"></p>
+        <div class="edu-meta">
+          <span>📅 <span x-text="t.eduDate"></span></span>
+          <span>📍 <span x-text="t.eduLocation"></span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== CONTACT ======== -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle" x-text="t.contactSubtitle"></span>
+        <h2 class="section-title" x-text="t.contactTitle"></h2>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info" data-aos="fade-up" data-aos-delay="100">
+          <p class="contact-info-text" x-text="t.contactText"></p>
+
+          <div class="contact-item">
+            <div class="contact-item-icon">✉️</div>
+            <div>
+              <span class="contact-item-label" x-text="t.contactEmail"></span>
+              <span class="contact-item-value">
+                <a href="mailto:ahmadsade011@gmail.com">ahmadsade011@gmail.com</a>
+              </span>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item-icon">📱</div>
+            <div>
+              <span class="contact-item-label" x-text="t.contactPhone"></span>
+              <span class="contact-item-value">
+                <a href="tel:+963930752001" dir="ltr" style="display: inline-block;">+963 930 752 001</a>
+              </span>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item-icon">📍</div>
+            <div>
+              <span class="contact-item-label" x-text="t.contactLocation"></span>
+              <span class="contact-item-value" x-text="t.contactLocationValue"></span>
+            </div>
+          </div>
+        </div>
+
+        <form class="glass-card contact-form" data-aos="fade-up" data-aos-delay="200"
+          action="https://formspree.io/f/maqdoqgg" method="POST">
+          <input type="hidden" name="_next" value="thanks.html">
+          <div class="form-group">
+            <input type="text" class="form-input" name="name" required :placeholder="t.contactFormName" />
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-input" name="email" required :placeholder="t.contactFormEmail" />
+          </div>
+          <div class="form-group">
+            <textarea class="form-textarea" name="message" required :placeholder="t.contactFormMessage"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-submit">
+            <span x-text="t.contactFormSend"></span>
+            <span>→</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-text" x-text="t.footerText"></p>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top -->
+  <button class="scroll-top" onclick="scrollToTop()" aria-label="Scroll to top">
+    ↑
+  </button>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <!-- App JS -->
+  <script src="js/app.js"></script>
+</body>
+
+</html>
