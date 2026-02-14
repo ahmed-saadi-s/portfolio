@@ -115,3 +115,51 @@ document.addEventListener("click", (e) => {
 function scrollToTop() {
     window.scrollTo({ top: 0, behavior: "smooth" });
 }
+
+// ---------- Contact Form AJAX Handling ----------
+document.addEventListener("DOMContentLoaded", () => {
+    const contactForm = document.querySelector(".contact-form");
+    if (!contactForm) return;
+
+    contactForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const form = e.target;
+        const submitBtn = form.querySelector(".btn-submit");
+        const originalText = submitBtn.innerHTML;
+
+        // Show loading state
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = "<span>Sending...</span>";
+        submitBtn.style.opacity = "0.7";
+
+        try {
+            const formData = new FormData(form);
+            const response = await fetch(form.action, {
+                method: "POST",
+                body: formData,
+                headers: {
+                    "Accept": "application/json"
+                }
+            });
+
+            if (response.ok) {
+                // Success - redirect to custom thanks page
+                window.location.href = "thanks.html";
+            } else {
+                // Error response
+                const data = await response.json();
+                alert(data.errors ? data.errors.map(error => error.message).join(", ") : "Oops! There was a problem submitting your form");
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+                submitBtn.style.opacity = "1";
+            }
+        } catch (error) {
+            // Network error
+            alert("Oops! There was a problem submitting your form. Please check your connection.");
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText;
+            submitBtn.style.opacity = "1";
+        }
+    });
+});
