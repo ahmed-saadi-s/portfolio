@@ -192,7 +192,7 @@
       </div>
 
       <div class="timeline">
-        <!-- TaxiF -->
+        <!-- Innovators -->
         <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
           <div class="timeline-dot animate-pulse-glow"></div>
           <div class="glass-card timeline-card">
@@ -214,7 +214,7 @@
           </div>
         </div>
 
-        <!-- Nobalaa -->
+        <!-- TaxiF -->
         <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
           <div class="timeline-dot"></div>
           <div class="glass-card timeline-card">
@@ -236,7 +236,7 @@
           </div>
         </div>
 
-        <!-- Freelance -->
+        <!-- Nobalaa -->
         <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
           <div class="timeline-dot"></div>
           <div class="glass-card timeline-card">
@@ -252,6 +252,28 @@
             </div>
             <ul class="timeline-points">
               <template x-for="point in t.exp3Points" :key="point">
+                <li x-text="point"></li>
+              </template>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Freelance -->
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+          <div class="timeline-dot"></div>
+          <div class="glass-card timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role" x-text="t.exp4Role"></h3>
+                <span class="timeline-company" x-text="t.exp4Company"></span>
+              </div>
+              <div class="timeline-meta">
+                <span class="timeline-date">📅 <span x-text="t.exp4Date"></span></span>
+                <span class="timeline-location">📍 <span x-text="t.exp4Location"></span></span>
+              </div>
+            </div>
+            <ul class="timeline-points">
+              <template x-for="point in t.exp4Points" :key="point">
                 <li x-text="point"></li>
               </template>
             </ul>
@@ -357,9 +379,9 @@
       </div>
 
       <div class="projects-grid">
-        <!-- Project 1: E-commerce -->
+        <!-- Project 1: Enjo -->
         <div class="glass-card project-card" data-aos="fade-up" data-aos-delay="100">
-          <div class="project-icon">🛒</div>
+          <div class="project-icon">🎫</div>
           <h3 class="project-title" x-text="t.proj1Title"></h3>
           <p class="project-desc" x-text="t.proj1Desc"></p>
           <ul class="project-points">
@@ -374,9 +396,9 @@
           </div>
         </div>
 
-        <!-- Project 2: Car Marketplace -->
+        <!-- Project 2: Enterprise CMS -->
         <div class="glass-card project-card" data-aos="fade-up" data-aos-delay="150">
-          <div class="project-icon">🚗</div>
+          <div class="project-icon">🌐</div>
           <h3 class="project-title" x-text="t.proj2Title"></h3>
           <p class="project-desc" x-text="t.proj2Desc"></p>
           <ul class="project-points">
@@ -391,9 +413,9 @@
           </div>
         </div>
 
-        <!-- Project 3: School Management -->
+        <!-- Project 3: Employee Monitoring -->
         <div class="glass-card project-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="project-icon">🏫</div>
+          <div class="project-icon">🖥️</div>
           <h3 class="project-title" x-text="t.proj3Title"></h3>
           <p class="project-desc" x-text="t.proj3Desc"></p>
           <ul class="project-points">
@@ -408,9 +430,9 @@
           </div>
         </div>
 
-        <!-- Project 4: CodeIgniter Upgrade -->
+        <!-- Project 4: E-commerce -->
         <div class="glass-card project-card" data-aos="fade-up" data-aos-delay="250">
-          <div class="project-icon">🔄</div>
+          <div class="project-icon">🛒</div>
           <h3 class="project-title" x-text="t.proj4Title"></h3>
           <p class="project-desc" x-text="t.proj4Desc"></p>
           <ul class="project-points">
@@ -425,9 +447,9 @@
           </div>
         </div>
 
-        <!-- Project 5: TaxiF CMS -->
+        <!-- Project 5: Car Marketplace -->
         <div class="glass-card project-card" data-aos="fade-up" data-aos-delay="300">
-          <div class="project-icon">🌐</div>
+          <div class="project-icon">🚗</div>
           <h3 class="project-title" x-text="t.proj5Title"></h3>
           <p class="project-desc" x-text="t.proj5Desc"></p>
           <ul class="project-points">
@@ -437,6 +459,40 @@
           </ul>
           <div class="project-tags">
             <template x-for="tag in t.proj5Tags" :key="tag">
+              <span class="project-tag" x-text="tag"></span>
+            </template>
+          </div>
+        </div>
+
+        <!-- Project 6: School Management -->
+        <div class="glass-card project-card" data-aos="fade-up" data-aos-delay="350">
+          <div class="project-icon">🏫</div>
+          <h3 class="project-title" x-text="t.proj6Title"></h3>
+          <p class="project-desc" x-text="t.proj6Desc"></p>
+          <ul class="project-points">
+            <template x-for="point in t.proj6Points" :key="point">
+              <li x-text="point"></li>
+            </template>
+          </ul>
+          <div class="project-tags">
+            <template x-for="tag in t.proj6Tags" :key="tag">
+              <span class="project-tag" x-text="tag"></span>
+            </template>
+          </div>
+        </div>
+
+        <!-- Project 7: CodeIgniter Upgrade -->
+        <div class="glass-card project-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="project-icon">🔄</div>
+          <h3 class="project-title" x-text="t.proj7Title"></h3>
+          <p class="project-desc" x-text="t.proj7Desc"></p>
+          <ul class="project-points">
+            <template x-for="point in t.proj7Points" :key="point">
+              <li x-text="point"></li>
+            </template>
+          </ul>
+          <div class="project-tags">
+            <template x-for="tag in t.proj7Tags" :key="tag">
               <span class="project-tag" x-text="tag"></span>
             </template>
           </div>
@@ -482,7 +538,7 @@
             <div>
               <span class="contact-item-label" x-text="t.contactEmail"></span>
               <span class="contact-item-value">
-                <a href="mailto:ahmadsade011@gmail.com">ahmadsade011@gmail.com</a>
+                <a href="mailto:ahmed.saadi.dev@gmail.com">ahmed.saadi.dev@gmail.com</a>
               </span>
             </div>
           </div>
