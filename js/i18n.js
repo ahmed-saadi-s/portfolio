@@ -113,7 +113,7 @@ const translations = {
       "Designed service-layer architecture with custom query builders for API filtering and pagination",
       "Containerized the application with Docker (PHP-FPM, Nginx, MySQL, Redis, Queue Worker)",
     ],
-    proj1Tags: ["Laravel 11", "Stripe", "Docker", "REST API", "MySQL", "Redis"],
+    proj1Tags: ["Laravel 11", "Payment Integration", "Docker", "REST API", "MySQL", "Redis"],
 
     proj2Title: "Enterprise Content Management System (CMS)",
     proj2Desc:
@@ -314,7 +314,7 @@ const translations = {
       "تصميم معمارية طبقة الخدمات مع بناة استعلام مخصصة للفلترة والترقيم",
       "حاوية التطبيق باستخدام Docker (PHP-FPM, Nginx, MySQL, Redis, Queue Worker)",
     ],
-    proj1Tags: ["Laravel 11", "Stripe", "Docker", "REST API", "MySQL", "Redis"],
+    proj1Tags: ["Laravel 11", "Payment Integration", "Docker", "REST API", "MySQL", "Redis"],
 
     proj2Title: "نظام إدارة محتوى مؤسسي (CMS)",
     proj2Desc:
