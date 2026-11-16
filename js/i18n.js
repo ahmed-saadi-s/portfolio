@@ -18,12 +18,12 @@ const translations = {
     heroName: "Ahmed Saadi",
     heroTyping: [
       "Software Engineer",
+      "Backend Engineer",
       "Laravel Specialist",
-      "Back-End Developer",
       "Full-Stack Developer",
     ],
     heroDescription:
-      "I specialize in designing and building robust back-end systems, RESTful APIs, and full-stack web applications. With a strong focus on clean architecture, performance optimization, and secure deployments — I turn complex business requirements into reliable, production-ready solutions.",
+      "Experienced software engineer specialized in back-end development, with strong expertise in designing and maintaining scalable, secure, and high-performance applications. Proficient in databases, APIs, and server-side technologies, with hands-on experience in deploying and configuring software solutions on production environments.",
     heroCTA: "View My Work",
     heroContact: "Get In Touch",
     heroDownloadCV: "Download CV",
@@ -37,8 +37,8 @@ const translations = {
       "Proficient in databases, APIs, and server-side technologies, with hands-on experience in deploying and configuring software solutions on production environments. Skilled at collaborating with cross-functional teams to deliver reliable systems on time.",
     aboutStat1Value: "3+",
     aboutStat1Label: "Years Experience",
-    aboutStat2Value: "8+",
-    aboutStat2Label: "Major Projects",
+    aboutStat2Value: "5+",
+    aboutStat2Label: "Featured Projects",
     aboutStat3Value: "10+",
     aboutStat3Label: "Clients Served",
     aboutStat4Value: "100%",
@@ -48,15 +48,15 @@ const translations = {
     expTitle: "Experience",
     expSubtitle: "Professional Journey",
 
-    exp1Role: "Back-End Developer",
+    exp1Role: "Backend Engineer | Laravel & PHP",
     exp1Company: "Innovators",
     exp1Date: "Mar 2026 – Present",
     exp1Location: "Remotely",
     exp1Points: [
-      "Developed and maintained custom web applications and client websites using Laravel, delivering scalable, secure, and high-performance solutions.",
-      "Collaborated with clients and cross-functional teams to analyze requirements and deliver scalable software solutions.",
-      "Built RESTful APIs and integrated third-party services, including payment gateways, SMS, email, and external APIs.",
-      "Optimized application performance, resolved production issues, and contributed to deployments and ongoing system improvements.",
+      "Developed and maintained Laravel applications and client websites, implementing backend features and improving application reliability and maintainability.",
+      "Collaborated with clients and cross-functional teams to analyze business requirements and translate them into practical technical solutions.",
+      "Developed RESTful APIs and integrated third-party services, including payment gateways, SMS, and email providers, to support application workflows.",
+      "Investigated and resolved production issues, optimized application performance, and supported deployments and ongoing backend improvements.",
     ],
 
     exp2Role: "Full Stack Developer",
@@ -64,12 +64,10 @@ const translations = {
     exp2Date: "Dec 2025 – Jun 2026",
     exp2Location: "Remotely",
     exp2Points: [
-      "Developed and maintained public websites, CMS platforms, and internal business systems tailored to operational and business needs.",
-      "Built and enhanced enterprise solutions, including ERP modules, monitoring systems, operational dashboards, and other internal tools.",
-      "Collaborated with stakeholders to translate business requirements into scalable technical solutions and deliver high-quality features.",
-      "Developed RESTful APIs and integrated third-party services while ensuring performance, security, and maintainability.",
-      "Leveraged AI-assisted development tools to improve productivity, accelerate implementation, and support debugging while maintaining engineering best practices.",
-      "Worked primarily with Laravel for back-end development, contributing to front-end implementation, deployments, and production support.",
+      "Developed and maintained websites, CMS platforms, ERP modules, monitoring systems, and internal business tools using Laravel.",
+      "Developed RESTful APIs and integrated third-party services to support application functionality and business workflows.",
+      "Contributed to front-end development, deployments, and production troubleshooting.",
+      "Used AI-assisted development tools for implementation and debugging while following engineering best practices.",
     ],
 
     exp3Role: "Full-Stack Developer",
@@ -77,32 +75,29 @@ const translations = {
     exp3Date: "Jun 2024 – Oct 2025",
     exp3Location: "Damascus, Syria",
     exp3Points: [
-      "Built and launched full-stack websites from scratch, delivering high-performance, secure, and responsive user experiences.",
-      "Improved and modernized existing platforms by adding new features and optimizing performance, resulting in smoother workflows and better user engagement.",
-      "Developed and integrated APIs to connect third-party services, ensuring reliability and scalability through thorough testing.",
-      "Managed hosting, servers, and deployments, guaranteeing stable and efficient production environments.",
-      "Optimized databases for performance, security, and scalability.",
-      "Specialized in Laravel for back-end development, while contributing to front-end tasks with modern web technologies.",
-    ],
-
-    exp4Role: "Back-End Developer",
-    exp4Company: "Freelance",
-    exp4Date: "Apr 2021 – Present",
-    exp4Location: "Damascus, Syria",
-    exp4Points: [
-      "Delivered customized software solutions aligned with client business objectives, ensuring scalability, performance, and long-term value.",
-      "Specialized in back-end development, database optimization, and API integration, with a focus on secure and reliable systems.",
-      "Collaborated directly with clients to gather requirements, recommend best practices, and translate technical needs into clear, actionable deliverables.",
+      "Developed and maintained full-stack web applications using Laravel and modern front-end technologies.",
+      "Enhanced existing platforms by implementing new features, integrating APIs, and optimizing database performance.",
+      "Managed hosting, server configuration, and deployments, while troubleshooting production issues.",
+      "Integrated third-party services and tested API functionality to ensure reliable system operation.",
     ],
 
     // Skills
     skillsTitle: "Skills",
     skillsSubtitle: "Technical Arsenal",
-    skillCat1: "Languages",
-    skillCat2: "Frameworks",
+    skillCat1: "Programming Languages",
+    skillCat2: "Frameworks & Libraries",
     skillCat3: "Databases",
-    skillCat4: "Tools & Tech",
-    skillCat5: "Core Strengths",
+    skillCat4: "APIs & Integrations",
+    skillCat5: "Testing",
+    skillCat6: "Caching & Queues",
+    skillCat7: "Tools & Infrastructure",
+    skillCat8: "Backend Concepts",
+    skillCat9: "Front-End",
+    skillCat10: "Languages",
+    skillDbOpt: "Database Optimization",
+    skillPerfOpt: "Performance Optimization",
+    langArabic: "Arabic — Native",
+    langEnglish: "English — Conversational",
 
     // Projects
     projTitle: "Projects",
@@ -122,75 +117,43 @@ const translations = {
 
     proj2Title: "Enterprise Content Management System (CMS)",
     proj2Desc:
-      "A comprehensive CMS platform enabling administrators to manage website content through a centralized dashboard with flexible modules.",
+      "Centralized CMS platform enabling administrators to manage website content, pages, menus, media, and SEO metadata through a dynamic dashboard.",
     proj2Points: [
-      "Built flexible modules for managing pages, articles, blogs, menus, media assets, SEO metadata, and navigation",
-      "Implemented role-based access control for secure and efficient content management",
-      "Developed reusable components and dynamic content management features for multiple websites",
-      "Integrated file and media management for efficient organization of digital assets",
-      "Optimized for performance, scalability, and maintainability with a user-friendly admin experience",
+      "Developed a centralized CMS for managing pages, articles, menus, media, and SEO metadata without code changes.",
+      "Implemented role-based access control and reusable components to support multiple websites.",
+      "Integrated file management and optimized application performance and maintainability.",
     ],
     proj2Tags: ["Laravel", "CMS", "RBAC", "SEO", "Media Management"],
 
     proj3Title: "Employee Monitoring & Remote Desktop Platform",
     proj3Desc:
-      "An enterprise employee monitoring platform for Windows-based remote desktop environments, built with a .NET agent, Go back-end, and Next.js dashboard.",
+      "Enterprise monitoring platform for Windows remote desktop environments, built with a .NET agent, Go backend, and Next.js dashboard.",
     proj3Points: [
-      "Developed activity monitoring features including idle detection, keyboard/mouse activity, browser usage, and clipboard monitoring",
-      "Built configurable monitoring policies with customizable recording intervals and notification rules",
-      "Implemented real-time monitoring with live session viewing, instant idle alerts, and centralized event collection",
-      "Collaborated using AI-assisted development tools to accelerate implementation while maintaining code quality",
+      "Contributed to an enterprise monitoring platform built with a .NET agent, Go backend, and Next.js dashboard.",
+      "Developed activity monitoring features, configurable recording policies, real-time session viewing, and idle alerts.",
+      "Supported implementation and debugging using AI-assisted development tools while following engineering practices.",
     ],
-    proj3Tags: [".NET", "Go", "Next.js", "Real-time", "Monitoring"],
+    proj3Tags: [".NET", "Go", "Next.js", "Real-Time Monitoring", "AI-Assisted"],
 
-    proj4Title: "E-commerce Marketplace",
+    proj4Title: "E-commerce Marketplace Platform",
     proj4Desc:
-      "Full e-commerce platform enabling product buying and selling through individual online stores, delivered as web and mobile applications.",
+      "Web and mobile marketplace platform enabling buying and selling with individual stores, product discovery, and role-based administration.",
     proj4Points: [
-      "Built role-based dashboards for super admin and store managers",
-      "Implemented personalized recommendation system",
-      "Designed front-end components, back-end services, and REST APIs",
-      "Ensured consistent UX and reliable performance across all components",
+      "Developed a web and mobile marketplace with individual online stores and role-based dashboards for administrators and store managers.",
+      "Implemented personalized product recommendations to improve product discovery.",
+      "Built frontend components, backend services, and RESTful APIs for mobile integration.",
     ],
-    proj4Tags: ["Laravel", "REST API", "MySQL", "Mobile Integration"],
+    proj4Tags: ["Laravel", "RESTful APIs", "MySQL", "Mobile Integration", "E-commerce"],
 
-    proj5Title: "Car Marketplace Platform",
+    proj5Title: "School Management Platform",
     proj5Desc:
-      "Full-featured web application with role-based dashboards for admins, supervisors, and sellers, with a seamless buyer storefront.",
+      "Comprehensive school management system with granular permissions, complete academic workflows, and parents mobile app integration.",
     proj5Points: [
-      "Implemented secure access control and web–mobile integration via RESTful APIs",
-      "Integrated real-time chat and Firebase Cloud Messaging",
-      "Integrated Flask-based AI for image/video validation",
-      "Optimized task processing with background queues",
+      "Developed role-based dashboards and granular permissions for administrators, supervisors, and advisors.",
+      "Implemented academic workflows covering students, classes, grades, assignments, schedules, and financial records.",
+      "Built RESTful APIs for the parents' mobile app and integrated WhatsApp messaging, Firebase Cloud Messaging, and background queues.",
     ],
-    proj5Tags: [
-      "Laravel",
-      "Firebase",
-      "Flask AI",
-      "Socket.IO",
-      "Background Queues",
-    ],
-
-    proj6Title: "School Management Platform",
-    proj6Desc:
-      "Comprehensive school management system with role-based dashboards and fine-grained permissions per grade/class/section.",
-    proj6Points: [
-      "Managed subjects, classes, parents, students, homework, and financial records",
-      "Exposed RESTful APIs for parents mobile app",
-      "Integrated WhatsApp messaging for supervisors",
-      "Implemented FCM push notifications and background queues",
-    ],
-    proj6Tags: ["Laravel", "REST API", "WhatsApp", "FCM", "Background Queues"],
-
-    proj7Title: "Legacy CodeIgniter Upgrade",
-    proj7Desc:
-      "Upgraded an outdated CodeIgniter application to the latest stable version with modern PHP standards.",
-    proj7Points: [
-      "Refactored and optimized codebase for maintainability and security",
-      "Integrated Twilio SMS and WhatsApp Business",
-      "Deployed to VPS with optimal performance configuration",
-    ],
-    proj7Tags: ["CodeIgniter", "Twilio", "WhatsApp Business", "VPS"],
+    proj5Tags: ["Laravel", "RESTful APIs", "WhatsApp", "FCM", "Background Queues"],
 
     // Education
     eduTitle: "Education",
@@ -198,7 +161,7 @@ const translations = {
     eduDegree: "Bachelor's Degree in Software Engineering",
     eduSchool: "Private Yarmouk University",
     eduDate: "Sep 2018 – Jul 2024",
-    eduLocation: "Daraa Governorate, Syria",
+    eduLocation: "Jabab, Daraa Governorate, Syria",
 
     // Contact
     contactTitle: "Contact",
@@ -208,7 +171,8 @@ const translations = {
     contactEmail: "Email",
     contactPhone: "Phone",
     contactLocation: "Location",
-    contactLocationValue: "Damascus, Syria",
+    contactLocationValue: "Mazzah, Damascus, Syria",
+    contactLinkedIn: "LinkedIn",
     contactFormName: "Your Name",
     contactFormEmail: "Your Email",
     contactFormMessage: "Your Message",
@@ -242,12 +206,12 @@ const translations = {
     heroName: "أحمد سعدي",
     heroTyping: [
       "مهندس برمجيات",
+      "مهندس باك إند",
       "متخصص Laravel",
-      "مطور باك إند",
       "مطور فل ستاك",
     ],
     heroDescription:
-      "أتخصص في تصميم وبناء أنظمة باك إند متينة، وواجهات برمجية RESTful، وتطبيقات ويب متكاملة. أركّز على الهندسة النظيفة، وتحسين الأداء، والنشر الآمن — لتحويل متطلبات العمل المعقّدة إلى حلول موثوقة وجاهزة للإنتاج.",
+      "مهندس برمجيات ذو خبرة متخصص في تطوير الباك إند، مع خبرة قوية في تصميم وصيانة تطبيقات قابلة للتوسع وآمنة وعالية الأداء. متمكن من قواعد البيانات وواجهات API وتقنيات الخوادم، مع خبرة عملية في نشر وتهيئة الحلول البرمجية على بيئات الإنتاج.",
     heroCTA: "شاهد أعمالي",
     heroContact: "تواصل معي",
     heroDownloadCV: "تحميل السيرة الذاتية",
@@ -261,8 +225,8 @@ const translations = {
       "متمكن من قواعد البيانات وواجهات API وتقنيات الخوادم، مع خبرة عملية في نشر وتهيئة الحلول البرمجية على بيئات الإنتاج. ماهر في التعاون مع الفرق متعددة التخصصات لتسليم أنظمة موثوقة في الوقت المحدد.",
     aboutStat1Value: "+3",
     aboutStat1Label: "سنوات خبرة",
-    aboutStat2Value: "+8",
-    aboutStat2Label: "مشاريع رئيسية",
+    aboutStat2Value: "+5",
+    aboutStat2Label: "مشاريع مميزة",
     aboutStat3Value: "+10",
     aboutStat3Label: "عملاء تمت خدمتهم",
     aboutStat4Value: "100%",
@@ -272,15 +236,15 @@ const translations = {
     expTitle: "الخبرات",
     expSubtitle: "المسيرة المهنية",
 
-    exp1Role: "مطور باك إند",
+    exp1Role: "مهندس باك إند | Laravel & PHP",
     exp1Company: "Innovators",
     exp1Date: "آذار 2026 – الحالي",
     exp1Location: "عن بعد",
     exp1Points: [
-      "تطوير وصيانة تطبيقات ويب مخصصة ومواقع عملاء باستخدام Laravel، بتقديم حلول قابلة للتوسع وآمنة وعالية الأداء.",
-      "التعاون مع العملاء والفرق متعددة التخصصات لتحليل المتطلبات وتقديم حلول برمجية قابلة للتوسع.",
-      "بناء واجهات RESTful APIs ودمج خدمات الطرف الثالث بما في ذلك بوابات الدفع والرسائل القصيرة والبريد الإلكتروني.",
-      "تحسين أداء التطبيقات وحل مشاكل الإنتاج والمساهمة في النشر والتحسينات المستمرة.",
+      "تطوير وصيانة تطبيقات Laravel ومواقع العملاء، وتنفيذ ميزات الباك إند وتحسين موثوقية التطبيقات وقابليتها للصيانة.",
+      "التعاون مع العملاء والفرق متعددة التخصصات لتحليل متطلبات العمل وترجمتها إلى حلول تقنية عملية.",
+      "تطوير واجهات RESTful APIs ودمج خدمات الطرف الثالث بما في ذلك بوابات الدفع ومزودي الرسائل القصيرة SMS والبريد الإلكتروني لدعم مسارات عمل التطبيقات.",
+      "التحقيق في مشاكل بيئة الإنتاج وحلها، وتحسين أداء التطبيقات، ودعم عمليات النشر والتحسينات المستمرة للباك إند.",
     ],
 
     exp2Role: "مطور فل ستاك",
@@ -288,12 +252,10 @@ const translations = {
     exp2Date: "كانون الأول 2025 – حزيران 2026",
     exp2Location: "عن بعد",
     exp2Points: [
-      "تطوير وصيانة المواقع العامة ومنصات CMS وأنظمة الأعمال الداخلية المصممة حسب الاحتياجات التشغيلية.",
-      "بناء وتحسين حلول المؤسسات بما في ذلك وحدات ERP وأنظمة المراقبة ولوحات المعلومات التشغيلية.",
-      "التعاون مع أصحاب المصلحة لترجمة متطلبات العمل إلى حلول تقنية قابلة للتوسع.",
-      "تطوير واجهات RESTful APIs ودمج خدمات الطرف الثالث مع ضمان الأداء والأمان.",
-      "استخدام أدوات التطوير المعززة بالذكاء الاصطناعي لتحسين الإنتاجية وتسريع التنفيذ مع الحفاظ على أفضل الممارسات الهندسية.",
-      "العمل بشكل أساسي مع Laravel للباك إند، مع المساهمة في تنفيذ الفرونت إند والنشر ودعم الإنتاج.",
+      "تطوير وصيانة المواقع الإلكترونية ومنصات CMS ووحدات ERP وأنظمة المراقبة وأدوات الأعمال الداخلية باستخدام Laravel.",
+      "تطوير واجهات RESTful APIs ودمج خدمات الطرف الثالث لدعم وظائف التطبيقات ومسارات العمل.",
+      "المساهمة في تطوير الفرونت إند، وعمليات النشر، واستكشاف أخطاء بيئة الإنتاج وحلها.",
+      "استخدام أدوات التطوير المدعومة بالذكاء الاصطناعي للتنفيذ واكتشاف الأخطاء مع الالتزام بأفضل الممارسات الهندسية.",
     ],
 
     exp3Role: "مطور فل ستاك",
@@ -301,32 +263,29 @@ const translations = {
     exp3Date: "حزيران 2024 – تشرين الأول 2025",
     exp3Location: "دمشق، سوريا",
     exp3Points: [
-      "بناء وإطلاق مواقع ويب متكاملة من الصفر بأداء عالي وأمان وتصميم متجاوب.",
-      "تحسين وتحديث المنصات الموجودة بإضافة ميزات جديدة وتحسين الأداء مما أدى لسير عمل أكثر سلاسة.",
-      "تطوير ودمج واجهات API لربط خدمات الطرف الثالث بموثوقية وقابلية للتوسع.",
-      "إدارة الاستضافة والخوادم والنشر لضمان بيئات إنتاج مستقرة وفعالة.",
-      "تحسين قواعد البيانات من حيث الأداء والأمان وقابلية التوسع.",
-      "التخصص في Laravel للباك إند مع المساهمة في مهام الفرونت إند بتقنيات ويب حديثة.",
-    ],
-
-    exp4Role: "مطور باك إند",
-    exp4Company: "عمل حر",
-    exp4Date: "نيسان 2021 – الحالي",
-    exp4Location: "دمشق، سوريا",
-    exp4Points: [
-      "تقديم حلول برمجية مخصصة متوافقة مع أهداف العمل بقابلية للتوسع والأداء وقيمة طويلة الأمد.",
-      "التخصص في تطوير الباك إند وتحسين قواعد البيانات ودمج واجهات API مع التركيز على الأنظمة الآمنة والموثوقة.",
-      "التعاون المباشر مع العملاء لجمع المتطلبات والتوصية بأفضل الممارسات وترجمة الاحتياجات التقنية إلى مخرجات واضحة.",
+      "تطوير وصيانة تطبيقات ويب متكاملة (Full-Stack) باستخدام Laravel وتقنيات الفرونت إند الحديثة.",
+      "تحسين المنصات الحالية عبر إضافة ميزات جديدة ودمج واجهات البرمجة وتحسين أداء قواعد البيانات.",
+      "إدارة الاستضافة وتهيئة الخوادم وعمليات النشر مع معالجة مشاكل بيئة الإنتاج.",
+      "دمج خدمات الطرف الثالث واختبار كفاءة واجهات API لضمان عمل الأنظمة بموثوقية.",
     ],
 
     // Skills
     skillsTitle: "المهارات",
     skillsSubtitle: "الترسانة التقنية",
     skillCat1: "لغات البرمجة",
-    skillCat2: "أطر العمل",
+    skillCat2: "أطر العمل والمكتبات",
     skillCat3: "قواعد البيانات",
-    skillCat4: "الأدوات والتقنيات",
-    skillCat5: "نقاط القوة",
+    skillCat4: "واجهات البرمجة والتكامل",
+    skillCat5: "الاختبار (Testing)",
+    skillCat6: "التخزين المؤقت والطوابير",
+    skillCat7: "الأدوات والبنية التحتية",
+    skillCat8: "مفاهيم الباك إند",
+    skillCat9: "الفرونت إند",
+    skillCat10: "اللغات",
+    skillDbOpt: "تحسين قواعد البيانات",
+    skillPerfOpt: "تحسين الأداء",
+    langArabic: "العربية — لغة أم",
+    langEnglish: "الإنجليزية — محادثة",
 
     // Projects
     projTitle: "المشاريع",
@@ -346,13 +305,11 @@ const translations = {
 
     proj2Title: "نظام إدارة محتوى مؤسسي (CMS)",
     proj2Desc:
-      "منصة CMS شاملة تمكّن المديرين من إدارة محتوى الموقع عبر لوحة تحكم مركزية بوحدات مرنة.",
+      "منصة CMS مركزية تمكّن المديرين من إدارة محتوى الموقع والصفحات والقوائم والوسائط وبيانات SEO عبر لوحة تحكم ديناميكية.",
     proj2Points: [
-      "بناء وحدات مرنة لإدارة الصفحات والمقالات والمدونات والقوائم والوسائط وبيانات SEO",
-      "تنفيذ تحكم بالوصول قائم على الأدوار لإدارة محتوى آمنة وفعالة",
-      "تطوير مكونات قابلة لإعادة الاستخدام وميزات إدارة محتوى ديناميكية لمواقع متعددة",
-      "دمج إدارة الملفات والوسائط لتنظيم فعال للأصول الرقمية",
-      "التحسين للأداء وقابلية التوسع والصيانة مع تجربة إدارة سهلة الاستخدام",
+      "تطوير نظام CMS مركزي لإدارة الصفحات والمقالات والقوائم والوسائط وبيانات SEO الوصفية دون الحاجة لتعديل الكود.",
+      "تنفيذ نظام التحكم بالوصول المستند إلى الأدوار (RBAC) ومكونات قابلة لإعادة الاستخدام لدعم مواقع ويب متعددة.",
+      "دمج إدارة متقدمة للملفات وتحسين أداء التطبيق وسهولة صيانته.",
     ],
     proj2Tags: ["Laravel", "CMS", "RBAC", "SEO", "إدارة الوسائط"],
 
@@ -360,61 +317,31 @@ const translations = {
     proj3Desc:
       "منصة مؤسسية لمراقبة الموظفين في بيئات سطح المكتب البعيد على Windows، مبنية بعميل .NET وباك إند Go ولوحة تحكم Next.js.",
     proj3Points: [
-      "تطوير ميزات مراقبة النشاط بما في ذلك كشف الخمول وحركة لوحة المفاتيح/الماوس واستخدام المتصفح",
-      "بناء سياسات مراقبة قابلة للتخصيص مع فترات تسجيل وقواعد إشعارات قابلة للضبط",
-      "تنفيذ مراقبة في الوقت الفعلي مع عرض الجلسات الحية وتنبيهات الخمول الفورية",
-      "التعاون باستخدام أدوات التطوير المعززة بالذكاء الاصطناعي لتسريع التنفيذ مع الحفاظ على جودة الكود",
+      "المساهمة في بناء منصة مراقبة مؤسسية مطورة بعميل .NET، وباك إند Go، ولوحة تحكم Next.js.",
+      "تطوير ميزات مراقبة النشاط، وسياسات تسجيل قابلة للتخصيص، وعرض الجلسات في الوقت الفعلي، وتنبيهات الخمول الفورية.",
+      "دعم التنفيذ واكتشاف الأخطاء باستخدام أدوات التطوير المدعومة بالذكاء الاصطناعي مع اتباع أفضل الممارسات الهندسية.",
     ],
     proj3Tags: [".NET", "Go", "Next.js", "الوقت الفعلي", "المراقبة"],
 
-    proj4Title: "منصة تجارة إلكترونية",
+    proj4Title: "منصة سوق التجارة الإلكترونية",
     proj4Desc:
-      "منصة تجارة إلكترونية متكاملة تتيح بيع وشراء المنتجات عبر متاجر فردية، متاحة كتطبيق ويب وموبايل.",
+      "منصة تجارة إلكترونية للويب والموبايل تتيح البيع والشراء عبر متاجر فردية، مع ميزات اكتشاف المنتجات ولوحات تحكم مخصصة.",
     proj4Points: [
-      "بناء لوحات تحكم بصلاحيات للمدير العام ومديري المتاجر",
-      "تنفيذ نظام توصيات مخصص",
-      "تصميم مكونات الفرونت إند وخدمات الباك إند وواجهات REST API",
-      "ضمان تجربة مستخدم متسقة وأداء موثوق عبر جميع المكونات",
+      "تطوير سوق إلكتروني للويب والموبايل بمتاجر فردية عبر الإنترنت ولوحات تحكم قائمة على الأدوار للمشرفين ومديري المتاجر.",
+      "تنفيذ نظام توصيات مخصص للمنتجات لتحسين تجربة تصفح واكتشاف المنتجات.",
+      "بناء مكونات الواجهة الأمامية، وخدمات الباك إند، وواجهات RESTful APIs للتكامل مع تطبيقات الموبايل.",
     ],
-    proj4Tags: ["Laravel", "REST API", "MySQL", "تكامل موبايل"],
+    proj4Tags: ["Laravel", "REST API", "MySQL", "تكامل موبايل", "تجارة إلكترونية"],
 
-    proj5Title: "منصة سوق السيارات",
+    proj5Title: "منصة إدارة المدارس",
     proj5Desc:
-      "تطبيق ويب متكامل بلوحات تحكم بصلاحيات للمديرين والمشرفين والبائعين مع واجهة شراء سلسة.",
+      "نظام متكامل لإدارة المدارس بصلاحيات دقيقة، ومسارات عمل أكاديمية شاملة، مع ربط تطبيق أولياء الأمور بالموبايل.",
     proj5Points: [
-      "تنفيذ تحكم آمن بالوصول وتكامل ويب-موبايل عبر RESTful APIs",
-      "دمج الدردشة الفورية وFirebase Cloud Messaging",
-      "دمج ذكاء اصطناعي مبني على Flask للتحقق من الصور/الفيديو",
-      "تحسين معالجة المهام عبر الطوابير في الخلفية",
+      "تطوير لوحات تحكم وصلاحيات دقيقة للمسؤولين والمشرفين والموجهين التربويين.",
+      "تنفيذ مسارات العمل الأكاديمية التي تشمل الطلاب والصفوف والدرجات والواجبات والجداول والسجلات المالية.",
+      "بناء واجهات RESTful APIs لتطبيق أولياء الأمور عبر الموبايل، ودمج رسائل WhatsApp وإشعارات FCM والطوابير في الخلفية.",
     ],
-    proj5Tags: [
-      "Laravel",
-      "Firebase",
-      "Flask AI",
-      "Socket.IO",
-      "طوابير خلفية",
-    ],
-
-    proj6Title: "منصة إدارة مدرسية",
-    proj6Desc:
-      "نظام إدارة مدرسية شامل بلوحات تحكم بصلاحيات دقيقة حسب الصف والشعبة والقسم.",
-    proj6Points: [
-      "إدارة المواد والصفوف والأهالي والطلاب والواجبات والسجلات المالية",
-      "توفير واجهات RESTful APIs لتطبيق الأهالي",
-      "دمج رسائل واتساب للمشرفين",
-      "تنفيذ إشعارات FCM وطوابير خلفية",
-    ],
-    proj6Tags: ["Laravel", "REST API", "واتساب", "FCM", "طوابير خلفية"],
-
-    proj7Title: "ترقية تطبيق CodeIgniter",
-    proj7Desc:
-      "ترقية تطبيق CodeIgniter قديم إلى أحدث إصدار مستقر مع معايير PHP الحديثة.",
-    proj7Points: [
-      "إعادة هيكلة وتحسين الكود للصيانة والأمان",
-      "دمج Twilio SMS وWhatsApp Business",
-      "النشر على VPS بتهيئة أداء مثالية",
-    ],
-    proj7Tags: ["CodeIgniter", "Twilio", "WhatsApp Business", "VPS"],
+    proj5Tags: ["Laravel", "REST API", "واتساب", "FCM", "طوابير خلفية"],
 
     // Education
     eduTitle: "التعليم",
@@ -422,7 +349,7 @@ const translations = {
     eduDegree: "بكالوريوس في هندسة البرمجيات",
     eduSchool: "جامعة اليرموك الخاصة",
     eduDate: "أيلول 2018 – تموز 2024",
-    eduLocation: "محافظة درعا، سوريا",
+    eduLocation: "خبب، محافظة درعا، سوريا",
 
     // Contact
     contactTitle: "التواصل",
@@ -431,7 +358,8 @@ const translations = {
     contactEmail: "البريد الإلكتروني",
     contactPhone: "الهاتف",
     contactLocation: "الموقع",
-    contactLocationValue: "دمشق، سوريا",
+    contactLocationValue: "المزة، دمشق، سوريا",
+    contactLinkedIn: "لينكد إن",
     contactFormName: "اسمك",
     contactFormEmail: "بريدك الإلكتروني",
     contactFormMessage: "رسالتك",

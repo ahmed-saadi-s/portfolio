@@ -257,28 +257,6 @@
             </ul>
           </div>
         </div>
-
-        <!-- Freelance -->
-        <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
-          <div class="timeline-dot"></div>
-          <div class="glass-card timeline-card">
-            <div class="timeline-header">
-              <div>
-                <h3 class="timeline-role" x-text="t.exp4Role"></h3>
-                <span class="timeline-company" x-text="t.exp4Company"></span>
-              </div>
-              <div class="timeline-meta">
-                <span class="timeline-date">📅 <span x-text="t.exp4Date"></span></span>
-                <span class="timeline-location">📍 <span x-text="t.exp4Location"></span></span>
-              </div>
-            </div>
-            <ul class="timeline-points">
-              <template x-for="point in t.exp4Points" :key="point">
-                <li x-text="point"></li>
-              </template>
-            </ul>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -292,7 +270,7 @@
       </div>
 
       <div class="skills-grid">
-        <!-- Languages -->
+        <!-- Programming Languages -->
         <div class="glass-card skill-category" data-aos="fade-up" data-aos-delay="100">
           <h3 class="skill-category-title">
             <span>💻</span> <span x-text="t.skillCat1"></span>
@@ -300,10 +278,11 @@
           <div class="skill-tags">
             <span class="skill-tag">PHP</span>
             <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">C#</span>
           </div>
         </div>
 
-        <!-- Frameworks -->
+        <!-- Frameworks & Libraries -->
         <div class="glass-card skill-category" data-aos="fade-up" data-aos-delay="150">
           <h3 class="skill-category-title">
             <span>🔧</span> <span x-text="t.skillCat2"></span>
@@ -312,6 +291,7 @@
             <span class="skill-tag">Laravel</span>
             <span class="skill-tag">Node.js</span>
             <span class="skill-tag">CodeIgniter</span>
+            <span class="skill-tag">.NET</span>
           </div>
         </div>
 
@@ -328,24 +308,69 @@
           </div>
         </div>
 
-        <!-- Tools -->
+        <!-- APIs & Integrations -->
         <div class="glass-card skill-category" data-aos="fade-up" data-aos-delay="250">
           <h3 class="skill-category-title">
-            <span>⚙️</span> <span x-text="t.skillCat4"></span>
+            <span>🔌</span> <span x-text="t.skillCat4"></span>
+          </h3>
+          <div class="skill-tags">
+            <span class="skill-tag">RESTful APIs</span>
+            <span class="skill-tag">Third-Party API Integration</span>
+            <span class="skill-tag">Firebase Cloud Messaging</span>
+          </div>
+        </div>
+
+        <!-- Testing -->
+        <div class="glass-card skill-category" data-aos="fade-up" data-aos-delay="300">
+          <h3 class="skill-category-title">
+            <span>🧪</span> <span x-text="t.skillCat5"></span>
+          </h3>
+          <div class="skill-tags">
+            <span class="skill-tag">PHPUnit</span>
+            <span class="skill-tag">Pest</span>
+          </div>
+        </div>
+
+        <!-- Caching & Queues -->
+        <div class="glass-card skill-category" data-aos="fade-up" data-aos-delay="350">
+          <h3 class="skill-category-title">
+            <span>⚡</span> <span x-text="t.skillCat6"></span>
+          </h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Redis</span>
+            <span class="skill-tag">Background Queues</span>
+          </div>
+        </div>
+
+        <!-- Tools & Infrastructure -->
+        <div class="glass-card skill-category" data-aos="fade-up" data-aos-delay="400">
+          <h3 class="skill-category-title">
+            <span>⚙️</span> <span x-text="t.skillCat7"></span>
           </h3>
           <div class="skill-tags">
             <span class="skill-tag">Git</span>
-            <span class="skill-tag">RESTful APIs</span>
             <span class="skill-tag">VPS</span>
             <span class="skill-tag">Shared Hosting</span>
-            <span class="skill-tag">FCM</span>
+            <span class="skill-tag">Server Management</span>
+            <span class="skill-tag">Deployment</span>
+          </div>
+        </div>
+
+        <!-- Backend Concepts -->
+        <div class="glass-card skill-category" data-aos="fade-up" data-aos-delay="450">
+          <h3 class="skill-category-title">
+            <span>🧠</span> <span x-text="t.skillCat8"></span>
+          </h3>
+          <div class="skill-tags">
+            <span class="skill-tag" x-text="t.skillDbOpt">Database Optimization</span>
+            <span class="skill-tag" x-text="t.skillPerfOpt">Performance Optimization</span>
           </div>
         </div>
 
         <!-- Front-End -->
-        <div class="glass-card skill-category" data-aos="fade-up" data-aos-delay="300">
+        <div class="glass-card skill-category" data-aos="fade-up" data-aos-delay="500">
           <h3 class="skill-category-title">
-            <span>🎨</span> <span>Front-End</span>
+            <span>🎨</span> <span x-text="t.skillCat9"></span>
           </h3>
           <div class="skill-tags">
             <span class="skill-tag">HTML</span>
@@ -353,17 +378,14 @@
           </div>
         </div>
 
-        <!-- Core Strengths -->
-        <div class="glass-card skill-category" data-aos="fade-up" data-aos-delay="350">
+        <!-- Languages -->
+        <div class="glass-card skill-category" data-aos="fade-up" data-aos-delay="550">
           <h3 class="skill-category-title">
-            <span>🚀</span> <span x-text="t.skillCat5"></span>
+            <span>🗣️</span> <span x-text="t.skillCat10"></span>
           </h3>
           <div class="skill-tags">
-            <span class="skill-tag">Server Management</span>
-            <span class="skill-tag">Deployment</span>
-            <span class="skill-tag">API Integration</span>
-            <span class="skill-tag">Performance Optimization</span>
-            <span class="skill-tag">Background Queues</span>
+            <span class="skill-tag" x-text="t.langArabic">Arabic — Native</span>
+            <span class="skill-tag" x-text="t.langEnglish">English — Conversational</span>
           </div>
         </div>
       </div>
@@ -430,7 +452,7 @@
           </div>
         </div>
 
-        <!-- Project 4: E-commerce -->
+        <!-- Project 4: E-commerce Marketplace Platform -->
         <div class="glass-card project-card" data-aos="fade-up" data-aos-delay="250">
           <div class="project-icon">🛒</div>
           <h3 class="project-title" x-text="t.proj4Title"></h3>
@@ -447,9 +469,9 @@
           </div>
         </div>
 
-        <!-- Project 5: Car Marketplace -->
+        <!-- Project 5: School Management Platform -->
         <div class="glass-card project-card" data-aos="fade-up" data-aos-delay="300">
-          <div class="project-icon">🚗</div>
+          <div class="project-icon">🏫</div>
           <h3 class="project-title" x-text="t.proj5Title"></h3>
           <p class="project-desc" x-text="t.proj5Desc"></p>
           <ul class="project-points">
@@ -459,40 +481,6 @@
           </ul>
           <div class="project-tags">
             <template x-for="tag in t.proj5Tags" :key="tag">
-              <span class="project-tag" x-text="tag"></span>
-            </template>
-          </div>
-        </div>
-
-        <!-- Project 6: School Management -->
-        <div class="glass-card project-card" data-aos="fade-up" data-aos-delay="350">
-          <div class="project-icon">🏫</div>
-          <h3 class="project-title" x-text="t.proj6Title"></h3>
-          <p class="project-desc" x-text="t.proj6Desc"></p>
-          <ul class="project-points">
-            <template x-for="point in t.proj6Points" :key="point">
-              <li x-text="point"></li>
-            </template>
-          </ul>
-          <div class="project-tags">
-            <template x-for="tag in t.proj6Tags" :key="tag">
-              <span class="project-tag" x-text="tag"></span>
-            </template>
-          </div>
-        </div>
-
-        <!-- Project 7: CodeIgniter Upgrade -->
-        <div class="glass-card project-card" data-aos="fade-up" data-aos-delay="400">
-          <div class="project-icon">🔄</div>
-          <h3 class="project-title" x-text="t.proj7Title"></h3>
-          <p class="project-desc" x-text="t.proj7Desc"></p>
-          <ul class="project-points">
-            <template x-for="point in t.proj7Points" :key="point">
-              <li x-text="point"></li>
-            </template>
-          </ul>
-          <div class="project-tags">
-            <template x-for="tag in t.proj7Tags" :key="tag">
               <span class="project-tag" x-text="tag"></span>
             </template>
           </div>
@@ -558,6 +546,16 @@
             <div>
               <span class="contact-item-label" x-text="t.contactLocation"></span>
               <span class="contact-item-value" x-text="t.contactLocationValue"></span>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item-icon">💼</div>
+            <div>
+              <span class="contact-item-label" x-text="t.contactLinkedIn"></span>
+              <span class="contact-item-value">
+                <a href="https://linkedin.com/in/ahmed-saadi-dev" target="_blank" rel="noopener noreferrer">Ahmed Saadi</a>
+              </span>
             </div>
           </div>
         </div>
