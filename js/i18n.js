@@ -105,10 +105,10 @@ const translations = {
 
     proj1Title: "Enjo — Event Ticketing Platform",
     proj1Desc:
-      "A comprehensive event and ticketing platform built with Laravel 11 serving customers, suppliers, and CMS admins with Stripe payment integration.",
+      "A comprehensive event and ticketing platform built with Laravel 11, serving customers, suppliers, and CMS administrators with third-party payment gateway integrations.",
     proj1Points: [
       "Built a multi-role API system with separate route layers for customers, suppliers, and CMS admins",
-      "Implemented Stripe payment processing with secure checkout and webhook handling",
+      "Integrated third-party payment gateways to support secure online payment processing",
       "Developed PDF ticket generation with QR codes for event entry validation",
       "Designed service-layer architecture with custom query builders for API filtering and pagination",
       "Containerized the application with Docker (PHP-FPM, Nginx, MySQL, Redis, Queue Worker)",
@@ -143,7 +143,13 @@ const translations = {
       "Implemented personalized product recommendations to improve product discovery.",
       "Built frontend components, backend services, and RESTful APIs for mobile integration.",
     ],
-    proj4Tags: ["Laravel", "RESTful APIs", "MySQL", "Mobile Integration", "E-commerce"],
+    proj4Tags: [
+      "Laravel",
+      "RESTful APIs",
+      "MySQL",
+      "Mobile Integration",
+      "E-commerce",
+    ],
 
     proj5Title: "School Management Platform",
     proj5Desc:
@@ -153,7 +159,13 @@ const translations = {
       "Implemented academic workflows covering students, classes, grades, assignments, schedules, and financial records.",
       "Built RESTful APIs for the parents' mobile app and integrated WhatsApp messaging, Firebase Cloud Messaging, and background queues.",
     ],
-    proj5Tags: ["Laravel", "RESTful APIs", "WhatsApp", "FCM", "Background Queues"],
+    proj5Tags: [
+      "Laravel",
+      "RESTful APIs",
+      "WhatsApp",
+      "FCM",
+      "Background Queues",
+    ],
 
     // Education
     eduTitle: "Education",
@@ -183,7 +195,8 @@ const translations = {
 
     // Thanks Page
     thanksTitle: "Message Sent!",
-    thanksMessage: "Thanks for reaching out. I've received your message and will get back to you shortly.",
+    thanksMessage:
+      "Thanks for reaching out. I've received your message and will get back to you shortly.",
     backHome: "Back to Home",
   },
 
@@ -259,7 +272,7 @@ const translations = {
     ],
 
     exp3Role: "مطور فل ستاك",
-    exp3Company: "شركة نبلاء",
+    exp3Company: "شركة النبلاء",
     exp3Date: "حزيران 2024 – تشرين الأول 2025",
     exp3Location: "دمشق، سوريا",
     exp3Points: [
@@ -293,10 +306,10 @@ const translations = {
 
     proj1Title: "Enjo — منصة حجز تذاكر الفعاليات",
     proj1Desc:
-      "منصة شاملة لحجز وإدارة تذاكر الفعاليات مبنية بـ Laravel 11 تخدم العملاء والموردين ومديري المحتوى مع تكامل الدفع عبر Stripe.",
+      "منصة شاملة لحجز وإدارة تذاكر الفعاليات، مبنية باستخدام Laravel 11، تخدم العملاء والموردين ومديري المحتوى، مع تكامل بوابات دفع إلكترونية خارجية.",
     proj1Points: [
       "بناء نظام API متعدد الأدوار بطبقات توجيه منفصلة للعملاء والموردين ومديري المحتوى",
-      "تنفيذ معالجة الدفع عبر Stripe مع عمليات دفع آمنة ومعالجة webhook",
+      "تكامل بوابات الدفع الإلكتروني لدعم معالجة المدفوعات عبر الإنترنت بشكل آمن",
       "تطوير نظام توليد تذاكر PDF مع رموز QR للتحقق من الدخول",
       "تصميم معمارية طبقة الخدمات مع بناة استعلام مخصصة للفلترة والترقيم",
       "حاوية التطبيق باستخدام Docker (PHP-FPM, Nginx, MySQL, Redis, Queue Worker)",
@@ -313,7 +326,7 @@ const translations = {
     ],
     proj2Tags: ["Laravel", "CMS", "RBAC", "SEO", "إدارة الوسائط"],
 
-    proj3Title: "منصة مراقبة الموظفين وسطح المكتب البعيد",
+    proj3Title: "منصة إدارة الموظفين والوصول عن بُعد لأجهزة الكمبيوتر",
     proj3Desc:
       "منصة مؤسسية لمراقبة الموظفين في بيئات سطح المكتب البعيد على Windows، مبنية بعميل .NET وباك إند Go ولوحة تحكم Next.js.",
     proj3Points: [
@@ -331,7 +344,13 @@ const translations = {
       "تنفيذ نظام توصيات مخصص للمنتجات لتحسين تجربة تصفح واكتشاف المنتجات.",
       "بناء مكونات الواجهة الأمامية، وخدمات الباك إند، وواجهات RESTful APIs للتكامل مع تطبيقات الموبايل.",
     ],
-    proj4Tags: ["Laravel", "REST API", "MySQL", "تكامل موبايل", "تجارة إلكترونية"],
+    proj4Tags: [
+      "Laravel",
+      "REST API",
+      "MySQL",
+      "تكامل موبايل",
+      "تجارة إلكترونية",
+    ],
 
     proj5Title: "منصة إدارة المدارس",
     proj5Desc:
@@ -354,7 +373,8 @@ const translations = {
     // Contact
     contactTitle: "التواصل",
     contactSubtitle: "لنتواصل",
-    contactText: "لديك مشروع في ذهنك أو تريد فقط إلقاء التحية؟ لا تتردد في التواصل!",
+    contactText:
+      "لديك مشروع في ذهنك أو تريد فقط إلقاء التحية؟ لا تتردد في التواصل!",
     contactEmail: "البريد الإلكتروني",
     contactPhone: "الهاتف",
     contactLocation: "الموقع",
@@ -369,7 +389,8 @@ const translations = {
 
     // Thanks Page
     thanksTitle: "تم الإرسال بنجاح!",
-    thanksMessage: "شكراً لتواصلك معي. لقد استلمت رسالتك وسأقوم بالرد عليك قريباً.",
+    thanksMessage:
+      "شكراً لتواصلك معي. لقد استلمت رسالتك وسأقوم بالرد عليك قريباً.",
     backHome: "العودة للرئيسية",
   },
 };
