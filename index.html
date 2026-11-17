@@ -17,15 +17,22 @@
     content="Building scalable, secure, and high-performance applications with clean architecture." />
   <meta property="og:type" content="website" />
 
-  <!-- Favicon -->
-  <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 5L93 28V72L50 95L7 72V28L50 5Z' fill='%2306b6d4' stroke='none'/><path d='M38 35L28 50L38 65' stroke='%23f1f5f9' stroke-width='6' stroke-linecap='round' stroke-linejoin='round' fill='none'/><path d='M56 30L44 70' stroke='%23f1f5f9' stroke-width='6' stroke-linecap='round' stroke-linejoin='round' fill='none'/><path d='M62 35L72 50L62 65' stroke='%23f1f5f9' stroke-width='6' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>" />
+  <!-- Theme resolution: runs before the stylesheet so the saved/system theme
+       is already on <html> at first paint (no flash of the wrong theme).
+       Also owns the toggle, the browser chrome colour and the favicon. -->
+  <script src="js/theme.js"></script>
 
-  <!-- AOS CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <!-- Mobile browser chrome colour (kept in sync with the theme by theme.js) -->
+  <meta name="theme-color" content="#F5F0E8" />
 
-  <!-- Tailwind CSS v4 CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <!-- Favicon: A+S monogram; theme.js swaps in the dark plate -->
+  <link id="favicon" rel="icon" type="image/png" sizes="64x64" href="assets/brand/favicon-light.png" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&family=Cairo:wght@400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <!-- Custom Styles -->
   <link rel="stylesheet" href="css/style.css" />
@@ -35,6 +42,44 @@
 
   <!-- Translations -->
   <script src="js/i18n.js"></script>
+
+  <!-- Inline animation styles for fade-up elements -->
+  <style>
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .stagger-item {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .is-visible {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
+    .stagger-item:nth-child(1) { transition-delay: 0.05s; }
+    .stagger-item:nth-child(2) { transition-delay: 0.12s; }
+    .stagger-item:nth-child(3) { transition-delay: 0.19s; }
+    .stagger-item:nth-child(4) { transition-delay: 0.26s; }
+    .stagger-item:nth-child(5) { transition-delay: 0.33s; }
+    .stagger-item:nth-child(6) { transition-delay: 0.40s; }
+    .stagger-item:nth-child(7) { transition-delay: 0.47s; }
+    .stagger-item:nth-child(8) { transition-delay: 0.54s; }
+    .stagger-item:nth-child(9) { transition-delay: 0.61s; }
+    .stagger-item:nth-child(10) { transition-delay: 0.68s; }
+  </style>
 </head>
 
 <body x-data="{
@@ -63,118 +108,181 @@
         });
       }
     }" x-init="init()">
+
   <!-- ======== NAVBAR ======== -->
   <nav class="navbar">
     <div class="container navbar-inner">
-      <a href="#" class="nav-logo">
-        <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M50 5L92 29V71L50 95L8 71V29L50 5Z" stroke="#06b6d4" stroke-width="5" stroke-linecap="round"
-            stroke-linejoin="round" />
-          <path d="M38 35L28 50L38 65" stroke="#f1f5f9" stroke-width="5" stroke-linecap="round"
-            stroke-linejoin="round" />
-          <path d="M56 30L44 70" stroke="#f1f5f9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
-          <path d="M62 35L72 50L62 65" stroke="#f1f5f9" stroke-width="5" stroke-linecap="round"
-            stroke-linejoin="round" />
-        </svg>
-        <span class="logo-text">Ahmed Saadi</span>
+      <a href="#" class="nav-logo" aria-label="Ahmed Saadi">
+        <!-- Brand mark: supplied A+S monogram, recoloured per theme in CSS -->
+        <span class="logo-mark" aria-hidden="true"></span>
+        <span class="logo-text" aria-hidden="true">Ahmed Saadi</span>
       </a>
+
       <ul class="nav-links" :class="{ 'open': mobileOpen }">
-        <li>
-          <a class="nav-link" href="#about" x-text="t.navAbout" @click="mobileOpen = false"></a>
-        </li>
-        <li>
-          <a class="nav-link" href="#experience" x-text="t.navExperience" @click="mobileOpen = false"></a>
-        </li>
-        <li>
-          <a class="nav-link" href="#skills" x-text="t.navSkills" @click="mobileOpen = false"></a>
-        </li>
-        <li>
-          <a class="nav-link" href="#projects" x-text="t.navProjects" @click="mobileOpen = false"></a>
-        </li>
-        <li>
-          <a class="nav-link" href="#education" x-text="t.navEducation" @click="mobileOpen = false"></a>
-        </li>
-        <li>
-          <a class="nav-link" href="#contact" x-text="t.navContact" @click="mobileOpen = false"></a>
-        </li>
-        <li>
-          <button class="lang-toggle" @click="switchLang()" x-text="t.langToggle"></button>
-        </li>
+        <li><a class="nav-link" href="#about" x-text="t.navAbout" @click="mobileOpen = false"></a></li>
+        <li><a class="nav-link" href="#experience" x-text="t.navExperience" @click="mobileOpen = false"></a></li>
+        <li><a class="nav-link" href="#skills" x-text="t.navSkills" @click="mobileOpen = false"></a></li>
+        <li><a class="nav-link" href="#projects" x-text="t.navProjects" @click="mobileOpen = false"></a></li>
+        <li><a class="nav-link" href="#education" x-text="t.navEducation" @click="mobileOpen = false"></a></li>
+        <li><a class="nav-link" href="#contact" x-text="t.navContact" @click="mobileOpen = false"></a></li>
+        <li><button class="lang-toggle" @click="switchLang()" x-text="t.langToggle"></button></li>
       </ul>
 
-      <button class="mobile-toggle" @click="mobileOpen = !mobileOpen" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <div class="nav-actions">
+        <!-- Theme toggle: aria-pressed reflects the theme state, the icon shows
+             the theme you are currently in. Handled by js/theme.js. -->
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false"
+          aria-label="Dark mode" :aria-label="t.themeToggle" :title="t.themeToggle">
+          <!-- moon = light theme is active, click to go dark -->
+          <svg class="theme-icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+            focusable="false">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+          <!-- sun = dark theme is active, click to go light -->
+          <svg class="theme-icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+            focusable="false">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+          </svg>
+        </button>
+
+        <button class="mobile-toggle" @click="mobileOpen = !mobileOpen" aria-label="Toggle menu"
+          :aria-expanded="mobileOpen ? 'true' : 'false'">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </nav>
 
   <!-- ======== HERO ======== -->
   <section class="hero section" id="hero">
+    <!-- Background: Fine grid — architectural drafting -->
     <div class="hero-bg">
       <div class="grid-pattern"></div>
-      <div class="gradient-orb orb-1"></div>
-      <div class="gradient-orb orb-2"></div>
+      <div class="hero-rule"></div>
     </div>
 
+    <!-- Main hero content in 2-col editorial layout -->
     <div class="container hero-content">
-      <span class="hero-greeting" x-text="t.heroGreeting"></span>
 
-      <h1 class="hero-name" x-text="t.heroName"></h1>
+      <!-- LEFT: Name, title, description, CTA -->
+      <div class="hero-left">
+        <!-- Annotation row -->
+        <div class="hero-annotation">
+          <div class="hero-annotation-line"></div>
+          <span class="hero-greeting" x-text="t.heroGreeting"></span>
+        </div>
 
-      <div class="hero-typing-wrapper">
-        <span class="hero-typing-text" id="typing-text"></span>
-        <span class="typing-cursor"></span>
+        <!-- Oversized display name -->
+        <h1 class="hero-name" x-text="t.heroName"></h1>
+        <div class="hero-name-underline" aria-hidden="true"></div>
+
+        <!-- Animated role typing -->
+        <div class="hero-typing-wrapper" aria-live="polite">
+          <span class="hero-typing-text" id="typing-text"></span>
+          <span class="typing-cursor" aria-hidden="true"></span>
+        </div>
+
+        <!-- Description -->
+        <p class="hero-desc" x-text="t.heroDescription"></p>
+
+        <!-- CTAs -->
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">
+            <span x-text="t.heroCTA"></span>
+            <span aria-hidden="true">↓</span>
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            <span x-text="t.heroContact"></span>
+            <span aria-hidden="true">→</span>
+          </a>
+          <a href="assets/Ahmed-Saadi-CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+            <span x-text="t.heroDownloadCV"></span>
+          </a>
+        </div>
       </div>
 
-      <p class="hero-desc" x-text="t.heroDescription"></p>
+      <!-- RIGHT: Stats panel — technical annotation grid -->
+      <div class="hero-right">
+        <div class="hero-stats-grid">
+          <div class="hero-stat">
+            <span class="hero-stat-index">01 / EXPERIENCE</span>
+            <span class="hero-stat-value" x-text="t.aboutStat1Value"></span>
+            <span class="hero-stat-label" x-text="t.aboutStat1Label"></span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-index">02 / PROJECTS</span>
+            <span class="hero-stat-value" x-text="t.aboutStat2Value"></span>
+            <span class="hero-stat-label" x-text="t.aboutStat2Label"></span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-index">03 / CLIENTS</span>
+            <span class="hero-stat-value" x-text="t.aboutStat3Value"></span>
+            <span class="hero-stat-label" x-text="t.aboutStat3Label"></span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-index">04 / COMMITMENT</span>
+            <span class="hero-stat-value" x-text="t.aboutStat4Value"></span>
+            <span class="hero-stat-label" x-text="t.aboutStat4Label"></span>
+          </div>
+        </div>
 
-      <div class="hero-cta">
-        <a href="#projects" class="btn btn-primary">
-          <span x-text="t.heroCTA"></span>
-          <span>↓</span>
-        </a>
-        <a href="#contact" class="btn btn-outline">
-          <span x-text="t.heroContact"></span>
-          <span>→</span>
-        </a>
-        <a href="assets/Ahmed-Saadi-CV.pdf" target="_blank" class="btn btn-outline">
-          <span x-text="t.heroDownloadCV"></span>
-          <span>📄</span>
-        </a>
+        <!-- Coordinate annotation — technical detail (LTR isolated so the
+             bidi algorithm cannot scramble the numbers in the Arabic layout) -->
+        <div class="hero-coord" aria-hidden="true">
+          <span dir="ltr">33.5138° N, 36.2765° E — Damascus, Syria</span>
+        </div>
       </div>
+    </div>
+
+    <!-- Bottom status bar -->
+    <div class="container hero-bottom">
+      <span class="hero-bottom-label" x-text="locale === 'ar' ? 'أحمد سعدي — مهندس برمجيات' : 'Ahmed Saadi — Software Engineer'"></span>
+      <span class="hero-scroll-hint" aria-hidden="true">Scroll ↓</span>
     </div>
   </section>
 
   <!-- ======== ABOUT ======== -->
   <section class="section" id="about">
     <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <span class="section-subtitle" x-text="t.aboutSubtitle"></span>
-        <h2 class="section-title" x-text="t.aboutTitle"></h2>
+      <!-- Editorial section header with index number -->
+      <div class="section-header fade-up">
+        <div class="section-label-group">
+          <span class="section-subtitle" x-text="t.aboutSubtitle"></span>
+          <h2 class="section-title" x-text="t.aboutTitle"></h2>
+        </div>
       </div>
 
       <div class="about-grid">
-        <div class="about-text" data-aos="fade-up" data-aos-delay="100">
-          <p x-text="t.aboutText1"></p>
+        <!-- Left: Text -->
+        <div class="about-text fade-up">
+          <p class="about-manifest" x-text="t.aboutText1"></p>
           <p x-text="t.aboutText2"></p>
         </div>
 
-        <div class="about-stats" data-aos="fade-up" data-aos-delay="200">
-          <div class="glass-card stat-card">
+        <!-- Right: Stats grid -->
+        <div class="about-stats fade-up" style="transition-delay: 0.1s;">
+          <div class="stat-card">
+            <span class="stat-index" aria-hidden="true">01</span>
             <span class="stat-value" x-text="t.aboutStat1Value"></span>
             <span class="stat-label" x-text="t.aboutStat1Label"></span>
           </div>
-          <div class="glass-card stat-card">
+          <div class="stat-card">
+            <span class="stat-index" aria-hidden="true">02</span>
             <span class="stat-value" x-text="t.aboutStat2Value"></span>
             <span class="stat-label" x-text="t.aboutStat2Label"></span>
           </div>
-          <div class="glass-card stat-card">
+          <div class="stat-card">
+            <span class="stat-index" aria-hidden="true">03</span>
             <span class="stat-value" x-text="t.aboutStat3Value"></span>
             <span class="stat-label" x-text="t.aboutStat3Label"></span>
           </div>
-          <div class="glass-card stat-card">
+          <div class="stat-card">
+            <span class="stat-index" aria-hidden="true">04</span>
             <span class="stat-value" x-text="t.aboutStat4Value"></span>
             <span class="stat-label" x-text="t.aboutStat4Label"></span>
           </div>
@@ -186,26 +294,23 @@
   <!-- ======== EXPERIENCE ======== -->
   <section class="section" id="experience">
     <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <span class="section-subtitle" x-text="t.expSubtitle"></span>
-        <h2 class="section-title" x-text="t.expTitle"></h2>
+      <div class="section-header fade-up">
+        <div class="section-label-group">
+          <span class="section-subtitle" x-text="t.expSubtitle"></span>
+          <h2 class="section-title" x-text="t.expTitle"></h2>
+        </div>
       </div>
 
       <div class="timeline">
         <!-- Innovators -->
-        <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
-          <div class="timeline-dot animate-pulse-glow"></div>
-          <div class="glass-card timeline-card">
-            <div class="timeline-header">
-              <div>
-                <h3 class="timeline-role" x-text="t.exp1Role"></h3>
-                <span class="timeline-company" x-text="t.exp1Company"></span>
-              </div>
-              <div class="timeline-meta">
-                <span class="timeline-date">📅 <span x-text="t.exp1Date"></span></span>
-                <span class="timeline-location">📍 <span x-text="t.exp1Location"></span></span>
-              </div>
-            </div>
+        <div class="timeline-item fade-up">
+          <div class="timeline-meta-col">
+            <span class="timeline-date" x-text="t.exp1Date"></span>
+            <span class="timeline-location" x-text="t.exp1Location"></span>
+          </div>
+          <div class="timeline-body">
+            <h3 class="timeline-role" x-text="t.exp1Role"></h3>
+            <span class="timeline-company" x-text="t.exp1Company"></span>
             <ul class="timeline-points">
               <template x-for="point in t.exp1Points" :key="point">
                 <li x-text="point"></li>
@@ -215,19 +320,14 @@
         </div>
 
         <!-- TaxiF -->
-        <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
-          <div class="timeline-dot"></div>
-          <div class="glass-card timeline-card">
-            <div class="timeline-header">
-              <div>
-                <h3 class="timeline-role" x-text="t.exp2Role"></h3>
-                <span class="timeline-company" x-text="t.exp2Company"></span>
-              </div>
-              <div class="timeline-meta">
-                <span class="timeline-date">📅 <span x-text="t.exp2Date"></span></span>
-                <span class="timeline-location">📍 <span x-text="t.exp2Location"></span></span>
-              </div>
-            </div>
+        <div class="timeline-item fade-up" style="transition-delay: 0.1s;">
+          <div class="timeline-meta-col">
+            <span class="timeline-date" x-text="t.exp2Date"></span>
+            <span class="timeline-location" x-text="t.exp2Location"></span>
+          </div>
+          <div class="timeline-body">
+            <h3 class="timeline-role" x-text="t.exp2Role"></h3>
+            <span class="timeline-company" x-text="t.exp2Company"></span>
             <ul class="timeline-points">
               <template x-for="point in t.exp2Points" :key="point">
                 <li x-text="point"></li>
@@ -237,19 +337,14 @@
         </div>
 
         <!-- Nobalaa -->
-        <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
-          <div class="timeline-dot"></div>
-          <div class="glass-card timeline-card">
-            <div class="timeline-header">
-              <div>
-                <h3 class="timeline-role" x-text="t.exp3Role"></h3>
-                <span class="timeline-company" x-text="t.exp3Company"></span>
-              </div>
-              <div class="timeline-meta">
-                <span class="timeline-date">📅 <span x-text="t.exp3Date"></span></span>
-                <span class="timeline-location">📍 <span x-text="t.exp3Location"></span></span>
-              </div>
-            </div>
+        <div class="timeline-item fade-up" style="transition-delay: 0.2s;">
+          <div class="timeline-meta-col">
+            <span class="timeline-date" x-text="t.exp3Date"></span>
+            <span class="timeline-location" x-text="t.exp3Location"></span>
+          </div>
+          <div class="timeline-body">
+            <h3 class="timeline-role" x-text="t.exp3Role"></h3>
+            <span class="timeline-company" x-text="t.exp3Company"></span>
             <ul class="timeline-points">
               <template x-for="point in t.exp3Points" :key="point">
                 <li x-text="point"></li>
@@ -264,128 +359,158 @@
   <!-- ======== SKILLS ======== -->
   <section class="section" id="skills">
     <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <span class="section-subtitle" x-text="t.skillsSubtitle"></span>
-        <h2 class="section-title" x-text="t.skillsTitle"></h2>
+      <div class="section-header fade-up">
+        <div class="section-label-group">
+          <span class="section-subtitle" x-text="t.skillsSubtitle"></span>
+          <h2 class="section-title" x-text="t.skillsTitle"></h2>
+        </div>
       </div>
 
-      <div class="skills-grid">
-        <!-- Programming Languages -->
-        <div class="glass-card skill-category" data-aos="fade-up" data-aos-delay="100">
-          <h3 class="skill-category-title">
-            <span>💻</span> <span x-text="t.skillCat1"></span>
-          </h3>
-          <div class="skill-tags">
-            <span class="skill-tag">PHP</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">C#</span>
-          </div>
-        </div>
+      <div class="skills-layout">
+        <!-- Side nav for skill categories -->
+        <nav class="skills-nav" aria-label="Skill categories">
+          <span class="skills-nav-item active" data-cat="0" x-text="t.skillCat1"></span>
+          <span class="skills-nav-item" data-cat="1" x-text="t.skillCat2"></span>
+          <span class="skills-nav-item" data-cat="2" x-text="t.skillCat3"></span>
+          <span class="skills-nav-item" data-cat="3" x-text="t.skillCat4"></span>
+          <span class="skills-nav-item" data-cat="4" x-text="t.skillCat5"></span>
+          <span class="skills-nav-item" data-cat="5" x-text="t.skillCat6"></span>
+          <span class="skills-nav-item" data-cat="6" x-text="t.skillCat7"></span>
+          <span class="skills-nav-item" data-cat="7" x-text="t.skillCat8"></span>
+          <span class="skills-nav-item" data-cat="8" x-text="t.skillCat9"></span>
+          <span class="skills-nav-item" data-cat="9" x-text="t.skillCat10"></span>
+        </nav>
 
-        <!-- Frameworks & Libraries -->
-        <div class="glass-card skill-category" data-aos="fade-up" data-aos-delay="150">
-          <h3 class="skill-category-title">
-            <span>🔧</span> <span x-text="t.skillCat2"></span>
-          </h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Laravel</span>
-            <span class="skill-tag">Node.js</span>
-            <span class="skill-tag">CodeIgniter</span>
-            <span class="skill-tag">.NET</span>
+        <!-- Skills grid -->
+        <div class="skills-grid">
+          <!-- Programming Languages -->
+          <div class="skill-category stagger-item">
+            <h3 class="skill-category-title">
+              <span class="cat-icon" aria-hidden="true">⟨/⟩</span>
+              <span x-text="t.skillCat1"></span>
+            </h3>
+            <div class="skill-tags">
+              <span class="skill-tag">PHP</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">C#</span>
+            </div>
           </div>
-        </div>
 
-        <!-- Databases -->
-        <div class="glass-card skill-category" data-aos="fade-up" data-aos-delay="200">
-          <h3 class="skill-category-title">
-            <span>🗄️</span> <span x-text="t.skillCat3"></span>
-          </h3>
-          <div class="skill-tags">
-            <span class="skill-tag">MySQL</span>
-            <span class="skill-tag">PostgreSQL</span>
-            <span class="skill-tag">SQL Server</span>
-            <span class="skill-tag">Firebase</span>
+          <!-- Frameworks & Libraries -->
+          <div class="skill-category stagger-item">
+            <h3 class="skill-category-title">
+              <span class="cat-icon" aria-hidden="true">⊕</span>
+              <span x-text="t.skillCat2"></span>
+            </h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Laravel</span>
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">CodeIgniter</span>
+              <span class="skill-tag">.NET</span>
+            </div>
           </div>
-        </div>
 
-        <!-- APIs & Integrations -->
-        <div class="glass-card skill-category" data-aos="fade-up" data-aos-delay="250">
-          <h3 class="skill-category-title">
-            <span>🔌</span> <span x-text="t.skillCat4"></span>
-          </h3>
-          <div class="skill-tags">
-            <span class="skill-tag">RESTful APIs</span>
-            <span class="skill-tag">Third-Party API Integration</span>
-            <span class="skill-tag">Firebase Cloud Messaging</span>
+          <!-- Databases -->
+          <div class="skill-category stagger-item">
+            <h3 class="skill-category-title">
+              <span class="cat-icon" aria-hidden="true">⊞</span>
+              <span x-text="t.skillCat3"></span>
+            </h3>
+            <div class="skill-tags">
+              <span class="skill-tag">MySQL</span>
+              <span class="skill-tag">PostgreSQL</span>
+              <span class="skill-tag">SQL Server</span>
+              <span class="skill-tag">Firebase</span>
+            </div>
           </div>
-        </div>
 
-        <!-- Testing -->
-        <div class="glass-card skill-category" data-aos="fade-up" data-aos-delay="300">
-          <h3 class="skill-category-title">
-            <span>🧪</span> <span x-text="t.skillCat5"></span>
-          </h3>
-          <div class="skill-tags">
-            <span class="skill-tag">PHPUnit</span>
-            <span class="skill-tag">Pest</span>
+          <!-- APIs & Integrations -->
+          <div class="skill-category stagger-item">
+            <h3 class="skill-category-title">
+              <span class="cat-icon" aria-hidden="true">⇄</span>
+              <span x-text="t.skillCat4"></span>
+            </h3>
+            <div class="skill-tags">
+              <span class="skill-tag">RESTful APIs</span>
+              <span class="skill-tag">Third-Party Integrations</span>
+              <span class="skill-tag">Firebase Cloud Messaging</span>
+            </div>
           </div>
-        </div>
 
-        <!-- Caching & Queues -->
-        <div class="glass-card skill-category" data-aos="fade-up" data-aos-delay="350">
-          <h3 class="skill-category-title">
-            <span>⚡</span> <span x-text="t.skillCat6"></span>
-          </h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Redis</span>
-            <span class="skill-tag">Background Queues</span>
+          <!-- Testing -->
+          <div class="skill-category stagger-item">
+            <h3 class="skill-category-title">
+              <span class="cat-icon" aria-hidden="true">✓</span>
+              <span x-text="t.skillCat5"></span>
+            </h3>
+            <div class="skill-tags">
+              <span class="skill-tag">PHPUnit</span>
+              <span class="skill-tag">Pest</span>
+            </div>
           </div>
-        </div>
 
-        <!-- Tools & Infrastructure -->
-        <div class="glass-card skill-category" data-aos="fade-up" data-aos-delay="400">
-          <h3 class="skill-category-title">
-            <span>⚙️</span> <span x-text="t.skillCat7"></span>
-          </h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">VPS</span>
-            <span class="skill-tag">Shared Hosting</span>
-            <span class="skill-tag">Server Management</span>
-            <span class="skill-tag">Deployment</span>
+          <!-- Caching & Queues -->
+          <div class="skill-category stagger-item">
+            <h3 class="skill-category-title">
+              <span class="cat-icon" aria-hidden="true">⚡</span>
+              <span x-text="t.skillCat6"></span>
+            </h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Redis</span>
+              <span class="skill-tag">Background Queues</span>
+            </div>
           </div>
-        </div>
 
-        <!-- Backend Concepts -->
-        <div class="glass-card skill-category" data-aos="fade-up" data-aos-delay="450">
-          <h3 class="skill-category-title">
-            <span>🧠</span> <span x-text="t.skillCat8"></span>
-          </h3>
-          <div class="skill-tags">
-            <span class="skill-tag" x-text="t.skillDbOpt">Database Optimization</span>
-            <span class="skill-tag" x-text="t.skillPerfOpt">Performance Optimization</span>
+          <!-- Tools & Infrastructure -->
+          <div class="skill-category stagger-item">
+            <h3 class="skill-category-title">
+              <span class="cat-icon" aria-hidden="true">⚙</span>
+              <span x-text="t.skillCat7"></span>
+            </h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">VPS</span>
+              <span class="skill-tag">Shared Hosting</span>
+              <span class="skill-tag">Server Management</span>
+              <span class="skill-tag">Deployment</span>
+            </div>
           </div>
-        </div>
 
-        <!-- Front-End -->
-        <div class="glass-card skill-category" data-aos="fade-up" data-aos-delay="500">
-          <h3 class="skill-category-title">
-            <span>🎨</span> <span x-text="t.skillCat9"></span>
-          </h3>
-          <div class="skill-tags">
-            <span class="skill-tag">HTML</span>
-            <span class="skill-tag">CSS</span>
+          <!-- Backend Concepts -->
+          <div class="skill-category stagger-item">
+            <h3 class="skill-category-title">
+              <span class="cat-icon" aria-hidden="true">◈</span>
+              <span x-text="t.skillCat8"></span>
+            </h3>
+            <div class="skill-tags">
+              <span class="skill-tag" x-text="t.skillDbOpt"></span>
+              <span class="skill-tag" x-text="t.skillPerfOpt"></span>
+            </div>
           </div>
-        </div>
 
-        <!-- Languages -->
-        <div class="glass-card skill-category" data-aos="fade-up" data-aos-delay="550">
-          <h3 class="skill-category-title">
-            <span>🗣️</span> <span x-text="t.skillCat10"></span>
-          </h3>
-          <div class="skill-tags">
-            <span class="skill-tag" x-text="t.langArabic">Arabic — Native</span>
-            <span class="skill-tag" x-text="t.langEnglish">English — Conversational</span>
+          <!-- Front-End -->
+          <div class="skill-category stagger-item">
+            <h3 class="skill-category-title">
+              <span class="cat-icon" aria-hidden="true">□</span>
+              <span x-text="t.skillCat9"></span>
+            </h3>
+            <div class="skill-tags">
+              <span class="skill-tag">HTML</span>
+              <span class="skill-tag">CSS</span>
+            </div>
+          </div>
+
+          <!-- Languages -->
+          <div class="skill-category stagger-item">
+            <h3 class="skill-category-title">
+              <span class="cat-icon" aria-hidden="true">Aa</span>
+              <span x-text="t.skillCat10"></span>
+            </h3>
+            <div class="skill-tags">
+              <span class="skill-tag" x-text="t.langArabic"></span>
+              <span class="skill-tag" x-text="t.langEnglish"></span>
+            </div>
           </div>
         </div>
       </div>
@@ -395,96 +520,133 @@
   <!-- ======== PROJECTS ======== -->
   <section class="section" id="projects">
     <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <span class="section-subtitle" x-text="t.projSubtitle"></span>
-        <h2 class="section-title" x-text="t.projTitle"></h2>
+      <div class="section-header fade-up">
+        <div class="section-label-group">
+          <span class="section-subtitle" x-text="t.projSubtitle"></span>
+          <h2 class="section-title" x-text="t.projTitle"></h2>
+        </div>
       </div>
 
-      <div class="projects-grid">
+      <div class="projects-list">
         <!-- Project 1: Enjo -->
-        <div class="glass-card project-card" data-aos="fade-up" data-aos-delay="100">
-          <div class="project-icon">🎫</div>
-          <h3 class="project-title" x-text="t.proj1Title"></h3>
-          <p class="project-desc" x-text="t.proj1Desc"></p>
-          <ul class="project-points">
-            <template x-for="point in t.proj1Points" :key="point">
-              <li x-text="point"></li>
-            </template>
-          </ul>
-          <div class="project-tags">
-            <template x-for="tag in t.proj1Tags" :key="tag">
-              <span class="project-tag" x-text="tag"></span>
-            </template>
+        <article class="project-card fade-up">
+          <div class="project-index-col" aria-hidden="true">
+            <span class="project-num">01</span>
           </div>
-        </div>
+          <div class="project-body">
+            <h3 class="project-title" x-text="t.proj1Title"></h3>
+            <p class="project-desc" x-text="t.proj1Desc"></p>
+            <ul class="project-points">
+              <template x-for="point in t.proj1Points" :key="point">
+                <li x-text="point"></li>
+              </template>
+            </ul>
+            <div class="project-tags">
+              <template x-for="tag in t.proj1Tags" :key="tag">
+                <span class="project-tag" x-text="tag"></span>
+              </template>
+            </div>
+          </div>
+          <div class="project-side" aria-hidden="true">
+            <div class="project-accent-mark"></div>
+          </div>
+        </article>
 
         <!-- Project 2: Enterprise CMS -->
-        <div class="glass-card project-card" data-aos="fade-up" data-aos-delay="150">
-          <div class="project-icon">🌐</div>
-          <h3 class="project-title" x-text="t.proj2Title"></h3>
-          <p class="project-desc" x-text="t.proj2Desc"></p>
-          <ul class="project-points">
-            <template x-for="point in t.proj2Points" :key="point">
-              <li x-text="point"></li>
-            </template>
-          </ul>
-          <div class="project-tags">
-            <template x-for="tag in t.proj2Tags" :key="tag">
-              <span class="project-tag" x-text="tag"></span>
-            </template>
+        <article class="project-card fade-up" style="transition-delay: 0.08s;">
+          <div class="project-index-col" aria-hidden="true">
+            <span class="project-num">02</span>
           </div>
-        </div>
+          <div class="project-body">
+            <h3 class="project-title" x-text="t.proj2Title"></h3>
+            <p class="project-desc" x-text="t.proj2Desc"></p>
+            <ul class="project-points">
+              <template x-for="point in t.proj2Points" :key="point">
+                <li x-text="point"></li>
+              </template>
+            </ul>
+            <div class="project-tags">
+              <template x-for="tag in t.proj2Tags" :key="tag">
+                <span class="project-tag" x-text="tag"></span>
+              </template>
+            </div>
+          </div>
+          <div class="project-side" aria-hidden="true">
+            <div class="project-accent-mark"></div>
+          </div>
+        </article>
 
         <!-- Project 3: Employee Monitoring -->
-        <div class="glass-card project-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="project-icon">🖥️</div>
-          <h3 class="project-title" x-text="t.proj3Title"></h3>
-          <p class="project-desc" x-text="t.proj3Desc"></p>
-          <ul class="project-points">
-            <template x-for="point in t.proj3Points" :key="point">
-              <li x-text="point"></li>
-            </template>
-          </ul>
-          <div class="project-tags">
-            <template x-for="tag in t.proj3Tags" :key="tag">
-              <span class="project-tag" x-text="tag"></span>
-            </template>
+        <article class="project-card fade-up" style="transition-delay: 0.16s;">
+          <div class="project-index-col" aria-hidden="true">
+            <span class="project-num">03</span>
           </div>
-        </div>
+          <div class="project-body">
+            <h3 class="project-title" x-text="t.proj3Title"></h3>
+            <p class="project-desc" x-text="t.proj3Desc"></p>
+            <ul class="project-points">
+              <template x-for="point in t.proj3Points" :key="point">
+                <li x-text="point"></li>
+              </template>
+            </ul>
+            <div class="project-tags">
+              <template x-for="tag in t.proj3Tags" :key="tag">
+                <span class="project-tag" x-text="tag"></span>
+              </template>
+            </div>
+          </div>
+          <div class="project-side" aria-hidden="true">
+            <div class="project-accent-mark"></div>
+          </div>
+        </article>
 
-        <!-- Project 4: E-commerce Marketplace Platform -->
-        <div class="glass-card project-card" data-aos="fade-up" data-aos-delay="250">
-          <div class="project-icon">🛒</div>
-          <h3 class="project-title" x-text="t.proj4Title"></h3>
-          <p class="project-desc" x-text="t.proj4Desc"></p>
-          <ul class="project-points">
-            <template x-for="point in t.proj4Points" :key="point">
-              <li x-text="point"></li>
-            </template>
-          </ul>
-          <div class="project-tags">
-            <template x-for="tag in t.proj4Tags" :key="tag">
-              <span class="project-tag" x-text="tag"></span>
-            </template>
+        <!-- Project 4: E-commerce -->
+        <article class="project-card fade-up" style="transition-delay: 0.24s;">
+          <div class="project-index-col" aria-hidden="true">
+            <span class="project-num">04</span>
           </div>
-        </div>
+          <div class="project-body">
+            <h3 class="project-title" x-text="t.proj4Title"></h3>
+            <p class="project-desc" x-text="t.proj4Desc"></p>
+            <ul class="project-points">
+              <template x-for="point in t.proj4Points" :key="point">
+                <li x-text="point"></li>
+              </template>
+            </ul>
+            <div class="project-tags">
+              <template x-for="tag in t.proj4Tags" :key="tag">
+                <span class="project-tag" x-text="tag"></span>
+              </template>
+            </div>
+          </div>
+          <div class="project-side" aria-hidden="true">
+            <div class="project-accent-mark"></div>
+          </div>
+        </article>
 
-        <!-- Project 5: School Management Platform -->
-        <div class="glass-card project-card" data-aos="fade-up" data-aos-delay="300">
-          <div class="project-icon">🏫</div>
-          <h3 class="project-title" x-text="t.proj5Title"></h3>
-          <p class="project-desc" x-text="t.proj5Desc"></p>
-          <ul class="project-points">
-            <template x-for="point in t.proj5Points" :key="point">
-              <li x-text="point"></li>
-            </template>
-          </ul>
-          <div class="project-tags">
-            <template x-for="tag in t.proj5Tags" :key="tag">
-              <span class="project-tag" x-text="tag"></span>
-            </template>
+        <!-- Project 5: School Management -->
+        <article class="project-card fade-up" style="transition-delay: 0.32s;">
+          <div class="project-index-col" aria-hidden="true">
+            <span class="project-num">05</span>
           </div>
-        </div>
+          <div class="project-body">
+            <h3 class="project-title" x-text="t.proj5Title"></h3>
+            <p class="project-desc" x-text="t.proj5Desc"></p>
+            <ul class="project-points">
+              <template x-for="point in t.proj5Points" :key="point">
+                <li x-text="point"></li>
+              </template>
+            </ul>
+            <div class="project-tags">
+              <template x-for="tag in t.proj5Tags" :key="tag">
+                <span class="project-tag" x-text="tag"></span>
+              </template>
+            </div>
+          </div>
+          <div class="project-side" aria-hidden="true">
+            <div class="project-accent-mark"></div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -492,18 +654,30 @@
   <!-- ======== EDUCATION ======== -->
   <section class="section" id="education">
     <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <span class="section-subtitle" x-text="t.eduSubtitle"></span>
-        <h2 class="section-title" x-text="t.eduTitle"></h2>
+      <div class="section-header fade-up">
+        <div class="section-label-group">
+          <span class="section-subtitle" x-text="t.eduSubtitle"></span>
+          <h2 class="section-title" x-text="t.eduTitle"></h2>
+        </div>
       </div>
 
-      <div class="glass-card edu-card" data-aos="fade-up" data-aos-delay="100">
-        <div class="edu-icon">🎓</div>
-        <h3 class="edu-degree" x-text="t.eduDegree"></h3>
-        <p class="edu-school" x-text="t.eduSchool"></p>
-        <div class="edu-meta">
-          <span>📅 <span x-text="t.eduDate"></span></span>
-          <span>📍 <span x-text="t.eduLocation"></span></span>
+      <!-- Education displayed as a technical data panel -->
+      <div class="edu-panel fade-up">
+        <div class="edu-cell">
+          <span class="edu-cell-label">Degree</span>
+          <span class="edu-cell-value large" x-text="t.eduDegree"></span>
+        </div>
+        <div class="edu-cell">
+          <span class="edu-cell-label">Institution</span>
+          <span class="edu-cell-value large accent" x-text="t.eduSchool"></span>
+        </div>
+        <div class="edu-cell">
+          <span class="edu-cell-label">Period</span>
+          <span class="edu-cell-value" x-text="t.eduDate"></span>
+        </div>
+        <div class="edu-cell">
+          <span class="edu-cell-label">Location</span>
+          <span class="edu-cell-value" x-text="t.eduLocation"></span>
         </div>
       </div>
     </div>
@@ -512,17 +686,20 @@
   <!-- ======== CONTACT ======== -->
   <section class="section" id="contact">
     <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <span class="section-subtitle" x-text="t.contactSubtitle"></span>
-        <h2 class="section-title" x-text="t.contactTitle"></h2>
+      <div class="section-header fade-up">
+        <div class="section-label-group">
+          <span class="section-subtitle" x-text="t.contactSubtitle"></span>
+          <h2 class="section-title" x-text="t.contactTitle"></h2>
+        </div>
       </div>
 
       <div class="contact-grid">
-        <div class="contact-info" data-aos="fade-up" data-aos-delay="100">
+        <!-- Contact Info -->
+        <div class="contact-info fade-up">
           <p class="contact-info-text" x-text="t.contactText"></p>
 
           <div class="contact-item">
-            <div class="contact-item-icon">✉️</div>
+            <div class="contact-item-icon-wrap" aria-hidden="true">✉</div>
             <div>
               <span class="contact-item-label" x-text="t.contactEmail"></span>
               <span class="contact-item-value">
@@ -532,17 +709,17 @@
           </div>
 
           <div class="contact-item">
-            <div class="contact-item-icon">📱</div>
+            <div class="contact-item-icon-wrap" aria-hidden="true">☏</div>
             <div>
               <span class="contact-item-label" x-text="t.contactPhone"></span>
               <span class="contact-item-value">
-                <a href="tel:+963930752001" dir="ltr" style="display: inline-block;">+963 930 752 001</a>
+                <a href="tel:+963930752001" dir="ltr" style="display:inline-block;">+963 930 752 001</a>
               </span>
             </div>
           </div>
 
           <div class="contact-item">
-            <div class="contact-item-icon">📍</div>
+            <div class="contact-item-icon-wrap" aria-hidden="true">◎</div>
             <div>
               <span class="contact-item-label" x-text="t.contactLocation"></span>
               <span class="contact-item-value" x-text="t.contactLocationValue"></span>
@@ -550,7 +727,7 @@
           </div>
 
           <div class="contact-item">
-            <div class="contact-item-icon">💼</div>
+            <div class="contact-item-icon-wrap" aria-hidden="true">in</div>
             <div>
               <span class="contact-item-label" x-text="t.contactLinkedIn"></span>
               <span class="contact-item-value">
@@ -560,9 +737,10 @@
           </div>
         </div>
 
-        <form class="glass-card contact-form" data-aos="fade-up" data-aos-delay="200"
-          action="https://formspree.io/f/maqdoqgg" method="POST">
-          <input type="hidden" name="_next" value="https://ahmed-saadi-s.github.io/portfolio/thanks.html">
+        <!-- Contact Form -->
+        <form class="contact-form fade-up" style="transition-delay: 0.1s;" action="https://formspree.io/f/maqdoqgg"
+          method="POST">
+          <input type="hidden" name="_next" value="https://ahmed-saadi-s.github.io/portfolio/thanks.html" />
           <div class="form-group">
             <input type="text" class="form-input" name="name" required :placeholder="t.contactFormName" />
           </div>
@@ -574,7 +752,7 @@
           </div>
           <button type="submit" class="btn btn-primary btn-submit">
             <span x-text="t.contactFormSend"></span>
-            <span>→</span>
+            <span aria-hidden="true">→</span>
           </button>
         </form>
       </div>
@@ -583,18 +761,14 @@
 
   <!-- ======== FOOTER ======== -->
   <footer class="footer">
-    <div class="container">
+    <div class="container footer-inner">
+      <span class="footer-brand" aria-hidden="true"></span>
       <p class="footer-text" x-text="t.footerText"></p>
     </div>
   </footer>
 
   <!-- Scroll to Top -->
-  <button class="scroll-top" onclick="scrollToTop()" aria-label="Scroll to top">
-    ↑
-  </button>
-
-  <!-- AOS JS -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <button class="scroll-top" onclick="scrollToTop()" aria-label="Scroll to top">↑</button>
 
   <!-- App JS -->
   <script src="js/app.js"></script>

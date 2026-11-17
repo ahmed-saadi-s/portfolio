@@ -2,156 +2,220 @@
 <html lang="en" dir="ltr">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Success - Ahmed Saadi</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Message Sent — Ahmed Saadi</title>
 
-    <!-- Favicon -->
-    <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 5L93 28V72L50 95L7 72V28L50 5Z' fill='%2306b6d4' stroke='none'/><path d='M38 35L28 50L38 65' stroke='%23f1f5f9' stroke-width='6' stroke-linecap='round' stroke-linejoin='round' fill='none'/><path d='M56 30L44 70' stroke='%23f1f5f9' stroke-width='6' stroke-linecap='round' stroke-linejoin='round' fill='none'/><path d='M62 35L72 50L62 65' stroke='%23f1f5f9' stroke-width='6' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>" />
+  <!-- Theme resolution: runs before the stylesheet so this page inherits the
+       exact theme chosen on index.html instead of falling back to the OS. -->
+  <script src="js/theme.js"></script>
 
-    <!-- Tailwind CSS v4 CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <meta name="theme-color" content="#F5F0E8" />
 
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="css/style.css" />
+  <!-- Favicon: A+S monogram; theme.js swaps in the dark plate -->
+  <link id="favicon" rel="icon" type="image/png" sizes="64x64" href="assets/brand/favicon-light.png" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
 
-    <!-- Alpine.js -->
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&family=Cairo:wght@400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
-    <!-- Translations -->
-    <script src="js/i18n.js"></script>
+  <!-- Shared styles -->
+  <link rel="stylesheet" href="css/style.css" />
 
-    <style>
-        :root {
-            --accent: #06b6d4;
-            --accent-glow: rgba(6, 182, 212, 0.4);
-        }
+  <!-- Alpine.js -->
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-        body {
-            background-color: #050810;
-            overflow: hidden;
-            height: 100vh;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+  <!-- Translations -->
+  <script src="js/i18n.js"></script>
 
-        .success-portal {
-            position: relative;
-            z-index: 10;
-            width: 100%;
-            max-width: 600px;
-            padding: 2rem;
-        }
+  <style>
+    body {
+      background: var(--bg);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
 
-        .success-badge {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 2rem;
-            padding: 4rem 2rem;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5),
-                inset 0 0 20px rgba(6, 182, 212, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
+    /* Fine grid overlay */
+    .thanks-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        linear-gradient(var(--rule) 1px, transparent 1px),
+        linear-gradient(90deg, var(--rule) 1px, transparent 1px);
+      background-size: 80px 80px;
+      opacity: 0.5;
+    }
 
-        .success-badge::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
-            transition: 0.5s;
-            animation: shine 3s infinite;
-        }
+    /* Oxblood left rule */
+    .thanks-rule {
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 5px;
+      background: var(--oxblood);
+    }
 
-        @keyframes shine {
-            to {
-                left: 100%;
-            }
-        }
+    .thanks-panel {
+      position: relative;
+      z-index: 1;
+      max-width: 560px;
+      width: 100%;
+      padding: 2rem;
+    }
 
-        .icon-ring {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 2px solid var(--accent);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 2.5rem;
-            position: relative;
-            box-shadow: 0 0 30px var(--accent-glow);
-            background: rgba(6, 182, 212, 0.05);
-        }
+    .thanks-card {
+      background: var(--bg-card);
+      border: 1px solid var(--rule-strong);
+      padding: 0;
+      overflow: hidden;
+    }
 
-        .icon-ring svg {
-            width: 50px;
-            height: 50px;
-            color: var(--accent);
-            filter: drop-shadow(0 0 10px var(--accent));
-        }
+    /* Header strip */
+    .thanks-header-strip {
+      background: var(--oxblood);
+      padding: 1rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-        .pulse-circle {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            border: 2px solid var(--accent);
-            animation: pulse-out 2s infinite linear;
-            opacity: 0;
-        }
+    .thanks-header-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      /* solid theme-aware ink: 10.3:1 on light oxblood, 5.5:1 on dark oxblood.
+         The old rgba(paper, .6) dropped below AA in both themes. */
+      color: var(--btn-primary-text);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
 
-        @keyframes pulse-out {
-            0% {
-                transform: scale(1);
-                opacity: 0.5;
-            }
+    .thanks-header-mark {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--btn-primary-text);
+      letter-spacing: 0.08em;
+    }
 
-            100% {
-                transform: scale(1.6);
-                opacity: 0;
-            }
-        }
+    .thanks-body {
+      padding: 3rem 2.5rem 2.5rem;
+    }
 
-        .countdown-bar {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            height: 3px;
-            background: var(--accent);
-            width: 100%;
-            transform-origin: left;
-            animation: countdown 5s linear forwards;
-        }
+    .thanks-icon {
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--rule-strong);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+      color: var(--oxblood);
+      font-size: 1.1rem;
+    }
 
-        @keyframes countdown {
-            from {
-                transform: scaleX(1);
-            }
+    .thanks-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
 
-            to {
-                transform: scaleX(0);
-            }
-        }
+    [dir="rtl"] .thanks-title {
+      font-family: var(--font-ar);
+      font-weight: 700;
+      letter-spacing: 0;
+      line-height: 1.4;
+    }
 
-        .bg-glow {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, transparent 70%);
-            z-index: 1;
-        }
-    </style>
+    .thanks-underline {
+      display: block;
+      width: 48px;
+      height: 2px;
+      background: var(--oxblood);
+      margin-bottom: 1.5rem;
+    }
+
+    .thanks-message {
+      color: var(--stone);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+
+    .thanks-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    [dir="rtl"] .thanks-actions { align-items: flex-end; }
+
+    .thanks-redirect {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--stone-light);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .thanks-redirect-count {
+      color: var(--oxblood);
+      font-weight: 600;
+    }
+
+    /* Countdown bar at bottom */
+    .thanks-progress {
+      height: 2px;
+      background: var(--rule);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .thanks-progress-fill {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      background: var(--oxblood);
+      animation: countdown-fill 5s linear forwards;
+      transform-origin: left;
+    }
+
+    [dir="rtl"] .thanks-progress-fill {
+      left: auto;
+      right: 0;
+      transform-origin: right;
+    }
+
+    @keyframes countdown-fill {
+      from { width: 100%; }
+      to { width: 0%; }
+    }
+
+    /* Fade in the card */
+    .thanks-panel {
+      animation: thanks-appear 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    @keyframes thanks-appear {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: none; }
+    }
+  </style>
 </head>
 
 <body x-data="{
@@ -159,69 +223,63 @@
     t: translations[localStorage.getItem('portfolio-lang') || 'en'],
     timer: 5,
     init() {
-        document.documentElement.setAttribute('dir', this.t.dir);
-        document.documentElement.setAttribute('lang', this.t.lang);
-        document.body.style.fontFamily = this.t.fontFamily;
-        let countdown = setInterval(() => {
-            if (this.timer > 0) {
-                this.timer--;
-            } else {
-                clearInterval(countdown);
-                window.location.href = 'index.html';
-            }
-        }, 1000);
+      document.documentElement.setAttribute('dir', this.t.dir);
+      document.documentElement.setAttribute('lang', this.t.lang);
+      document.body.style.fontFamily = this.t.fontFamily;
+      const interval = setInterval(() => {
+        if (this.timer > 0) {
+          this.timer--;
+        } else {
+          clearInterval(interval);
+          window.location.href = 'index.html';
+        }
+      }, 1000);
     }
-}">
+  }" x-init="init()">
 
-    <div class="bg-glow"></div>
+  <!-- Background -->
+  <div class="thanks-bg" aria-hidden="true"></div>
+  <div class="thanks-rule" aria-hidden="true"></div>
 
-    <div class="hero-bg">
-        <div class="grid-pattern" style="opacity: 0.5;"></div>
-    </div>
+  <main class="thanks-panel" role="main">
+    <div class="thanks-card">
+      <!-- Header strip -->
+      <div class="thanks-header-strip">
+        <span class="thanks-header-label">Message Received</span>
+        <span class="thanks-header-mark" x-text="locale === 'ar' ? 'أحمد سعدي' : 'Ahmed Saadi'"></span>
+      </div>
 
-    <main class="success-portal" data-aos="zoom-in">
-        <div class="success-badge text-center">
-            <div class="icon-ring">
-                <div class="pulse-circle"></div>
-                <div class="pulse-circle" style="animation-delay: 1s;"></div>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-            </div>
+      <!-- Body -->
+      <div class="thanks-body">
+        <!-- Check icon -->
+        <div class="thanks-icon" aria-hidden="true">✓</div>
 
-            <h1 class="text-4xl md:text-6xl font-black mb-10 leading-tight bg-gradient-to-r from-white via-[var(--accent)] to-white bg-clip-text text-transparent"
-                x-text="t.thanksTitle || 'Message Sent!'"></h1>
+        <h1 class="thanks-title" x-text="t.thanksTitle || 'Message Sent!'"></h1>
+        <span class="thanks-underline" aria-hidden="true"></span>
 
-            <p class="text-xl md:text-2xl text-gray-400 mb-16 font-medium max-w-lg mx-auto leading-relaxed"
-                x-text="t.thanksMessage || 'I have received your message and will get back to you shortly.'"></p>
+        <p class="thanks-message"
+          x-text="t.thanksMessage || 'Thanks for reaching out. I\'ve received your message and will get back to you shortly.'">
+        </p>
 
-            <div class="flex flex-col items-center gap-6">
-                <a href="index.html"
-                    class="btn btn-primary px-12 py-4 rounded-full text-lg font-bold transition-all hover:scale-105 active:scale-95 flex items-center gap-3">
-                    <span x-text="t.backHome || 'Return Home'"></span>
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
-                        </path>
-                    </svg>
-                </a>
-
-                <p class="text-gray-500 text-sm font-mono tracking-widest">
-                    <span x-text="locale === 'ar' ? 'العودة تلقائياً في' : 'AUTO-REDIRECT IN'"></span>
-                    <span class="text-[var(--accent)] font-bold" x-text="timer + 's'"></span>
-                </p>
-            </div>
-
-            <div class="countdown-bar"></div>
+        <div class="thanks-actions">
+          <a href="index.html" class="btn btn-primary">
+            <span x-text="t.backHome || 'Back to Home'"></span>
+            <span aria-hidden="true">→</span>
+          </a>
+          <p class="thanks-redirect">
+            <span x-text="locale === 'ar' ? 'العودة تلقائياً في' : 'Auto-redirect in'"></span>
+            <span class="thanks-redirect-count" x-text="timer + 's'"></span>
+          </p>
         </div>
-    </main>
+      </div>
 
-    <!-- AOS JS -->
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 1000, once: true });
-    </script>
+      <!-- Countdown bar -->
+      <div class="thanks-progress" aria-hidden="true">
+        <div class="thanks-progress-fill"></div>
+      </div>
+    </div>
+  </main>
+
 </body>
 
 </html>

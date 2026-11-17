@@ -12,6 +12,7 @@ const translations = {
     navEducation: "Education",
     navContact: "Contact",
     langToggle: "عربي",
+    themeToggle: "Dark mode",
 
     // Hero
     heroGreeting: "Hello, I'm",
@@ -203,7 +204,7 @@ const translations = {
   ar: {
     dir: "rtl",
     lang: "ar",
-    fontFamily: "'IBM Plex Sans Arabic', sans-serif",
+    fontFamily: "'Alexandria', 'Cairo', system-ui, sans-serif",
 
     // Navigation
     navAbout: "عني",
@@ -213,6 +214,7 @@ const translations = {
     navEducation: "التعليم",
     navContact: "التواصل",
     langToggle: "English",
+    themeToggle: "الوضع الداكن",
 
     // Hero
     heroGreeting: "مرحباً، أنا",
@@ -368,7 +370,7 @@ const translations = {
     eduDegree: "بكالوريوس في هندسة البرمجيات",
     eduSchool: "جامعة اليرموك الخاصة",
     eduDate: "أيلول 2018 – تموز 2024",
-    eduLocation: "خبب، محافظة درعا، سوريا",
+    eduLocation: "غباغب، محافظة درعا، سوريا",
 
     // Contact
     contactTitle: "التواصل",
